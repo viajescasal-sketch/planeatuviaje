@@ -21,14 +21,19 @@ export default function Navbar() {
     { label: "Paquetes", href: "#paquetes" },
     { label: "Tours", href: "#tours" },
     { label: "Testimonios", href: "#testimonios" },
+    { label: "Blog", href: "/blog" },
     { label: "FAQ", href: "#faq" },
     { label: "Contacto", href: "#contacto" },
   ];
 
   const handleNavClick = (href: string) => {
     setMenuOpen(false);
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    if (href.startsWith("/")) {
+      window.location.href = href;
+    } else {
+      const el = document.querySelector(href);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
