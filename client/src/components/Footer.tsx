@@ -138,11 +138,11 @@ export default function Footer() {
               <ul className="space-y-3">
                 <li className="flex items-start gap-2 text-white/60 text-sm">
                   <span className="text-[#009FE3] mt-0.5">📱</span>
-                  <span>+52 998 743 7557</span>
+                  <span>+52 (1) XXX-XXX-XXXX</span>
                 </li>
                 <li className="flex items-start gap-2 text-white/60 text-sm">
                   <span className="text-[#009FE3] mt-0.5">✉️</span>
-                  <span>casal@viajesbumeran.com</span>
+                  <span>contacto@viajescasal.com</span>
                 </li>
                 <li className="flex items-start gap-2 text-white/60 text-sm">
                   <span className="text-[#009FE3] mt-0.5">🕐</span>

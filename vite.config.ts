@@ -205,7 +205,7 @@ function vitePluginStorageProxy(): Plugin {
 
 const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy()];
 
-export default defineConfig({base: "/planeatuviaje/",
+export default defineConfig({
   plugins,
   resolve: {
     alias: {
