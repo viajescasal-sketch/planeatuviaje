@@ -91,21 +91,7 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Social Media Icons */}
-        <div className="hidden lg:flex items-center gap-3">
-          <a href="https://www.facebook.com/share/1GjFtGYqvk/" target="_blank" rel="noopener noreferrer" className={`transition-colors duration-200 hover:text-[#009FE3] ${scrolled ? "text-[#1A2B3C]" : "text-white/80"}`} aria-label="Facebook" title="Síguenos en Facebook">
-            <FacebookIcon />
-          </a>
-          <a href="https://www.tiktok.com/@viajes_bumeran_casal?_r=1&_t=ZS-97tnwvvVyF8" target="_blank" rel="noopener noreferrer" className={`transition-colors duration-200 hover:text-[#009FE3] ${scrolled ? "text-[#1A2B3C]" : "text-white/80"}`} aria-label="TikTok" title="Síguenos en TikTok">
-            <TikTokIcon />
-          </a>
-          <a href="https://www.instagram.com/viaja.pau?igsh=bWZzeGphM2JveHV0&utm_source=qr" target="_blank" rel="noopener noreferrer" className={`transition-colors duration-200 hover:text-[#009FE3] ${scrolled ? "text-[#1A2B3C]" : "text-white/80"}`} aria-label="Instagram" title="Síguenos en Instagram">
-            <InstagramIcon />
-          </a>
-          <a href="https://youtube.com/@inspirateaviajar?si=x4N2enDjoUBr3QF_" target="_blank" rel="noopener noreferrer" className={`transition-colors duration-200 hover:text-[#009FE3] ${scrolled ? "text-[#1A2B3C]" : "text-white/80"}`} aria-label="YouTube" title="Síguenos en YouTube">
-            <YouTubeIcon />
-          </a>
-        </div>
+
 
         {/* CTA Button */}
         <a

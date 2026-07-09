@@ -7,6 +7,16 @@
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 import { useEffect } from "react";
 
+// Suppress ResizeObserver errors from Elfsight widget
+if (typeof window !== 'undefined') {
+  const resizeObserverErrorHandler = (e: ErrorEvent) => {
+    if (e.message === 'ResizeObserver loop completed with undelivered notifications.') {
+      e.stopImmediatePropagation();
+    }
+  };
+  window.addEventListener('error', resizeObserverErrorHandler);
+}
+
 export default function Testimonials() {
   const { ref, visible } = useScrollAnimation();
 
