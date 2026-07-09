@@ -62,14 +62,14 @@ export default function Navbar() {
                 scrolled ? "text-[#1A2B3C]" : "text-white"
               }`}
             >
-              Viajes Bumeran
+              Viajes Casal
             </span>
             <span
               className={`text-xs font-medium transition-colors duration-300 ${
                 scrolled ? "text-[#009FE3]" : "text-white/80"
               }`}
             >
-              Casal
+              Tu viaje, nuestra prioridad
             </span>
           </div>
         </a>
