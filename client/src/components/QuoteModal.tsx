@@ -82,7 +82,7 @@ export default function QuoteModal({ isOpen, onClose, defaultDestino = "" }: Quo
     }
     setErrors({});
 
-    const msg = `¡Hola! Me interesa cotizar un viaje con Viajes Casal 🌴
+    const msg = `¡Hola! Me interesa cotizar un viaje con Viajes Bumeran Casal 🌴
 
 *Nombre:* ${form.nombre}
 *WhatsApp:* ${form.whatsapp}
@@ -94,7 +94,7 @@ ${form.comentarios ? `*Comentarios:* ${form.comentarios}` : ""}
 
 ¡Espero su respuesta! 😊`;
 
-    const url = `https://wa.me/521XXXXXXXXXX?text=${encodeURIComponent(msg)}`;
+    const url = `https://wa.me/529983921530?text=${encodeURIComponent(msg)}`;
     window.open(url, "_blank", "noopener,noreferrer");
     onClose();
     setForm({ nombre: "", whatsapp: "", destino: "", fecha: "", viajeros: "2", presupuesto: "", comentarios: "" });

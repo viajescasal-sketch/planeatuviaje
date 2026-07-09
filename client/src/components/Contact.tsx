@@ -13,7 +13,7 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const msg = `Hola, me contacto desde el sitio web de Viajes Casal.
+    const msg = `Hola, me contacto desde el sitio web de Viajes Bumeran Casal.
 
 *Nombre:* ${form.nombre}
 *Email:* ${form.email}
@@ -23,7 +23,7 @@ export default function Contact() {
 ${form.mensaje}`;
 
     window.open(
-      `https://wa.me/521XXXXXXXXXX?text=${encodeURIComponent(msg)}`,
+      `https://wa.me/529983921530?text=${encodeURIComponent(msg)}`,
       "_blank",
       "noopener,noreferrer"
     );
@@ -57,21 +57,21 @@ ${form.mensaje}`;
               <ContactCard
                 icon={<WhatsAppIcon />}
                 title="WhatsApp"
-                value="+52 (1) XXX-XXX-XXXX"
-                link="https://wa.me/521XXXXXXXXXX"
+                value="+52 998 743 7557"
+                link="https://wa.me/529987437557"
                 color="#25D366"
               />
               <ContactCard
                 icon={<EmailIcon />}
                 title="Email"
-                value="contacto@viajescasal.com"
-                link="mailto:contacto@viajescasal.com"
+                value="casal@viajesbumeran.com"
+                link="mailto:casal@viajesbumeran.com"
                 color="#009FE3"
               />
               <ContactCard
                 icon={<ClockIcon />}
                 title="Horario de atención"
-                value="Lunes a Sábado: 9:00 AM – 8:00 PM"
+                value="Lunes a Sábado: 9:00 AM – 6:00 PM"
                 color="#F5A623"
               />
             </div>

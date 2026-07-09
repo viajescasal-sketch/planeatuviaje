@@ -76,7 +76,7 @@ export default function Hero() {
             {/* CTAs */}
             <div className="flex flex-wrap gap-4">
               <a
-                href="https://wa.me/521XXXXXXXXXX?text=Hola,%20quiero%20cotizar%20un%20viaje%20con%20Viajes%20Casal"
+                href="https://wa.me/529983921530?text=Hola,%20quiero%20cotizar%20un%20viaje%20con%20Viajes%20Bumeran%20Casal"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary text-base px-8 py-4"

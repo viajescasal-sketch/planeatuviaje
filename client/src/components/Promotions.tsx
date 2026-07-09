@@ -103,7 +103,7 @@ export default function Promotions() {
                   <p className="text-[#F5A623] text-xs font-semibold mt-1">⏰ {promos[0].validUntil}</p>
                 </div>
                 <a
-                  href={`https://wa.me/521XXXXXXXXXX?text=Hola,%20me%20interesa%20la%20oferta%20de%20${encodeURIComponent(promos[0].title)}%20de%20julio`}
+                  href={`https://wa.me/529983921530?text=Hola,%20me%20interesa%20la%20oferta%20de%20${encodeURIComponent(promos[0].title)}%20de%20julio`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary text-sm px-6 py-3"
@@ -147,7 +147,7 @@ export default function Promotions() {
                     <p className="text-[#F5A623] text-xs font-semibold">⏰ {promo.validUntil}</p>
                   </div>
                   <a
-                    href={`https://wa.me/521XXXXXXXXXX?text=Hola,%20me%20interesa%20la%20oferta%20de%20${encodeURIComponent(promo.title)}`}
+                    href={`https://wa.me/529983921530?text=Hola,%20me%20interesa%20la%20oferta%20de%20${encodeURIComponent(promo.title)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-primary text-xs px-4 py-2.5"

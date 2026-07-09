@@ -106,7 +106,7 @@ export default function HowItWorks() {
             {/* CTA */}
             <div className={`mt-10 fade-in ${visible ? "visible" : ""}`} style={{ transitionDelay: "550ms" }}>
               <a
-                href="https://wa.me/521XXXXXXXXXX?text=Hola,%20quiero%20planear%20mi%20viaje%20con%20Viajes%20Casal"
+                href="https://wa.me/529983921530?text=Hola,%20quiero%20planear%20mi%20viaje%20con%20Viajes%20Bumeran%20Casal"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary text-sm px-7 py-3.5"

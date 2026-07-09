@@ -33,7 +33,7 @@ export default function Footer() {
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="https://wa.me/521XXXXXXXXXX?text=Hola,%20quiero%20planear%20mi%20viaje%20con%20Viajes%20Casal"
+                href="https://wa.me/529983921530?text=Hola,%20quiero%20planear%20mi%20viaje%20con%20Viajes%20Bumeran%20Casal"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-whatsapp text-base px-8 py-4"
@@ -61,26 +61,26 @@ export default function Footer() {
             <div className="lg:col-span-1">
               <div className="flex items-center gap-2 mb-4">
                 <img
-                  src="/manus-storage/logo-viajes-casal_72f4c7f8.png"
-                  alt="Viajes Casal"
+                  src="/manus-storage/LOGOVBCASALACOLORFONDOBLANCO.jpg_49faa729.webp"
+                  alt="Viajes Bumeran Casal"
                   width="36"
                   height="36"
-                  className="rounded-lg"
+                  className="rounded-full"
                   loading="lazy"
                 />
                 <div>
-                  <span className="text-white font-bold text-lg leading-none block">Viajes Casal</span>
-                  <span className="text-white/50 text-xs">Tu viaje, nuestra prioridad</span>
+                  <span className="text-white font-bold text-lg leading-none block">Viajes Bumeran</span>
+                  <span className="text-white/50 text-xs">Casal</span>
                 </div>
               </div>
               <p className="text-white/60 text-sm leading-relaxed mb-4">
-                Agencia de viajes premium especializada en destinos de playa en México. Más de 8 años creando experiencias inolvidables.
+                Viajes Bumeran Casal es una agencia de viajes premium especializada en destinos de playa en México. Más de 8 años creando experiencias inolvidables para nuestros clientes.
               </p>
               {/* Social */}
               <div className="flex gap-3">
                 <SocialLink href="#" label="Facebook" icon={<FacebookIcon />} />
                 <SocialLink href="#" label="Instagram" icon={<InstagramIcon />} />
-                <SocialLink href="https://wa.me/521XXXXXXXXXX" label="WhatsApp" icon={<WhatsAppSmallIcon />} />
+                <SocialLink href="https://wa.me/529983921530" label="WhatsApp" icon={<WhatsAppSmallIcon />} />
               </div>
             </div>
 
@@ -138,15 +138,15 @@ export default function Footer() {
               <ul className="space-y-3">
                 <li className="flex items-start gap-2 text-white/60 text-sm">
                   <span className="text-[#009FE3] mt-0.5">📱</span>
-                  <span>+52 (1) XXX-XXX-XXXX</span>
+                  <span>+52 998 743 7557</span>
                 </li>
                 <li className="flex items-start gap-2 text-white/60 text-sm">
                   <span className="text-[#009FE3] mt-0.5">✉️</span>
-                  <span>contacto@viajescasal.com</span>
+                  <span>casal@viajesbumeran.com</span>
                 </li>
                 <li className="flex items-start gap-2 text-white/60 text-sm">
                   <span className="text-[#009FE3] mt-0.5">🕐</span>
-                  <span>Lun–Sáb: 9:00 AM – 8:00 PM</span>
+                  <span>Lun–Sáb: 9:00 AM – 6:00 PM</span>
                 </li>
               </ul>
             </div>

@@ -50,11 +50,11 @@ export default function Navbar() {
           aria-label="Viajes Casal - Inicio"
         >
           <img
-            src="/manus-storage/logo-viajes-casal_72f4c7f8.png"
-            alt="Viajes Casal logo"
+            src="/manus-storage/LOGOVBCASALACOLORFONDOBLANCO.jpg_49faa729.webp"
+            alt="Viajes Bumeran Casal logo"
             width="40"
             height="40"
-            className="rounded-lg"
+            className="rounded-full"
           />
           <div className="flex flex-col leading-tight">
             <span
@@ -62,14 +62,14 @@ export default function Navbar() {
                 scrolled ? "text-[#1A2B3C]" : "text-white"
               }`}
             >
-              Viajes Casal
+              Viajes Bumeran
             </span>
             <span
               className={`text-xs font-medium transition-colors duration-300 ${
                 scrolled ? "text-[#009FE3]" : "text-white/80"
               }`}
             >
-              Tu viaje, nuestra prioridad
+              Casal
             </span>
           </div>
         </a>
@@ -93,7 +93,7 @@ export default function Navbar() {
 
         {/* CTA Button */}
         <a
-          href="https://wa.me/521XXXXXXXXXX?text=Hola,%20me%20interesa%20cotizar%20un%20viaje"
+          href="https://wa.me/529983921530?text=Hola,%20me%20interesa%20cotizar%20un%20viaje"
           target="_blank"
           rel="noopener noreferrer"
           className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold text-sm transition-all duration-200 hover:scale-105 active:scale-95"
@@ -134,7 +134,7 @@ export default function Navbar() {
             ))}
             <li className="pt-2">
               <a
-                href="https://wa.me/521XXXXXXXXXX?text=Hola,%20me%20interesa%20cotizar%20un%20viaje"
+                href="https://wa.me/529983921530?text=Hola,%20me%20interesa%20cotizar%20un%20viaje"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-whatsapp w-full justify-center"

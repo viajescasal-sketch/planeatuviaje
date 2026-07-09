@@ -2,56 +2,57 @@
  * Testimonials — Viajes Casal
  * Design: Editorial layout with large featured quote + grid
  * Section: Testimonios
+ * Reseñas reales de Google Maps - Viajes Bumeran Casal
  */
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 const testimonials = [
   {
-    name: "Mariana González",
-    role: "Viaje familiar a Cancún",
+    name: "Anayely Bello",
+    role: "Viaje de menores desde Estados Unidos",
     avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&q=80",
     stars: 5,
-    text: "Gracias a Viajes Casal tuvimos el mejor viaje en familia. Todo fue perfecto, sin estrés y con recomendaciones increíbles. El hotel era exactamente como nos lo describieron.",
+    text: "Excelente experiencia con Paulina. Quiero agradecer profundamente a Paulina por toda su ayuda y dedicación durante nuestro viaje. Desde el primer momento estuvo pendiente de cada detalle y nos acompañó durante todo el proceso. Fue una persona muy especial para mis hijos, siempre amable, paciente y dispuesta a ayudarnos. Si estás en Estados Unidos y quieres mandar a tus pequeños de viaje para visitar a su familia o conocer nuevos lugares, Paulina es la persona indicada. ¡La recomiendo ampliamente!",
     featured: true,
   },
   {
-    name: "Carlos & Andrea",
-    role: "Luna de miel en Los Cabos",
-    avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=100&h=100&fit=crop&q=80",
-    stars: 5,
-    text: "Nuestro viaje de luna de miel fue un sueño. Cada detalle fue pensado para nosotros. ¡Superó todas nuestras expectativas! La cena romántica en la playa fue simplemente mágica.",
-    featured: false,
-  },
-  {
-    name: "Jorge Ramírez",
-    role: "Viaje de negocios + turismo",
+    name: "Ara Flores",
+    role: "Viaje con agente Joel",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&q=80",
     stars: 5,
-    text: "Me ahorró horas de investigación y dinero. Siempre estuvo disponible y nos acompañó durante todo el viaje. El servicio personalizado marca una diferencia enorme.",
+    text: "Me encantó la atención personalizada de nuestro agente de viajes Joel, estuvo al pendiente de todo desde que salimos de casa hasta el regreso.",
     featured: false,
   },
   {
-    name: "Sofía Martínez",
-    role: "Grupo de amigas a Puerto Vallarta",
+    name: "Luz Niño",
+    role: "Viajero frecuente",
     avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&q=80",
     stars: 5,
-    text: "Organizamos un viaje de 8 amigas y fue impecable. Los traslados, el hotel, las actividades... todo coordinado perfectamente. Ya estamos planeando el siguiente viaje.",
+    text: "¡Altamente recomendados! He viajado con ellos en repetidas ocasiones y mis viajes han sido muy significativos y una grata experiencia. Además de sentirte segura al viajar individualmente. Destaco el excelente servicio y la atención al detalle. Desde todo el proceso de planeación, sus propuestas, sugerencias, y acompañamiento en el viaje y al regreso. Además del detalle inesperado que tuvieron por mi cumpleaños. He sentido un trato muy cálido.",
     featured: false,
   },
   {
-    name: "Roberto Mendoza",
-    role: "Aniversario en Cancún",
+    name: "Carolina José",
+    role: "Viaje a Chile",
     avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&q=80",
     stars: 5,
-    text: "Celebramos nuestro aniversario número 10 y fue perfecto. El detalle de las flores en la habitación y la cena especial que organizaron fue un toque que no esperábamos.",
+    text: "Excelente servicio y atención. Me ayudaron a organizar mi viaje a Chile con gran profesionalismo; cuidaron cada detalle con mucha precisión. Sin duda, una experiencia totalmente recomendable.",
     featured: false,
   },
   {
-    name: "Valentina Cruz",
-    role: "Primera vez en Los Cabos",
-    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&q=80",
+    name: "Juan Manuel Alvarado Moctezuma",
+    role: "Cliente satisfecho",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&q=80",
     stars: 5,
-    text: "Era mi primera vez viajando sola y me sentí completamente segura y acompañada. Viajes Casal me dio toda la información que necesitaba.",
+    text: "Excelente servicio, muy buena atención al cliente, profesionalismo, altamente recomendable.",
+    featured: false,
+  },
+  {
+    name: "Bj Ramírez",
+    role: "Viajero frecuente",
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&q=80",
+    stars: 5,
+    text: "Excelente servicio, la atención que tienen con cliente es fantástica, buscan que tu experiencia sea acogedora, no debes de preocuparte de nada, todo lo tiene resuelto para que solo te dediques a disfrutar las vacaciones. Ampliamente recomendable. Gracias CASAL.",
     featured: false,
   },
 ];

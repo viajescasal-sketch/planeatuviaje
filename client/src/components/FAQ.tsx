@@ -107,7 +107,7 @@ export default function FAQ() {
               Escríbenos directamente y te respondemos en minutos.
             </p>
             <a
-              href="https://wa.me/521XXXXXXXXXX?text=Hola,%20tengo%20una%20pregunta%20sobre%20sus%20servicios"
+              href="https://wa.me/529983921530?text=Hola,%20tengo%20una%20pregunta%20sobre%20sus%20servicios"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-whatsapp inline-flex"

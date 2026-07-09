@@ -6,7 +6,7 @@
 export default function FloatingWhatsApp() {
   return (
     <a
-      href="https://wa.me/521XXXXXXXXXX?text=Hola,%20me%20interesa%20cotizar%20un%20viaje%20con%20Viajes%20Casal"
+      href="https://wa.me/529983921530?text=Hola,%20me%20interesa%20cotizar%20un%20viaje%20con%20Viajes%20Bumeran%20Casal"
       target="_blank"
       rel="noopener noreferrer"
       className="whatsapp-float"
