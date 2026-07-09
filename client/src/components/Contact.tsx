@@ -141,7 +141,7 @@ ${form.mensaje}`;
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="c-email" className="vc-label">Email</label>
+                      <label htmlFor="c-email" className="vc-label">Tu mejor email</label>
                       <input
                         id="c-email"
                         type="email"
