@@ -15,6 +15,7 @@ import FAQ from "../components/FAQ";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import FloatingWhatsApp from "../components/FloatingWhatsApp";
+import ChatBot from "../components/ChatBot";
 
 export default function Home() {
   return (
@@ -63,6 +64,9 @@ export default function Home() {
 
       {/* Floating WhatsApp button */}
       <FloatingWhatsApp />
+
+      {/* ChatBot */}
+      <ChatBot />
     </>
   );
 }

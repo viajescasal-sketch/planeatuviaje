@@ -5,6 +5,7 @@
  * Section: Promociones de Julio
  */
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
+import CountdownTimer from "./CountdownTimer";
 
 const promos = [
   {
@@ -65,9 +66,12 @@ export default function Promotions() {
                 <span style={{ color: "#F5A623" }}>exclusivas</span> de este mes
               </h2>
             </div>
-            <p className="text-white/70 text-base max-w-sm leading-relaxed lg:text-right">
-              Cupos limitados. Cada propuesta está seleccionada por nuestro equipo para ofrecerte la mejor experiencia al mejor valor.
-            </p>
+            <div className="flex flex-col gap-4">
+              <p className="text-white/70 text-base max-w-sm leading-relaxed lg:text-right">
+                Cupos limitados. Cada propuesta está seleccionada por nuestro equipo para ofrecerte la mejor experiencia al mejor valor.
+              </p>
+              <CountdownTimer />
+            </div>
           </div>
           {/* Gold divider */}
           <div className="mt-6 w-16 h-0.5 bg-[#F5A623]" />
