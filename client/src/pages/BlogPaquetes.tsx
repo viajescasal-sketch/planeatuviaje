@@ -9,7 +9,7 @@ export default function BlogPaquetes() {
       title="Paquetes Todo Incluido vs. Viajar por Separado: ¿Cuál Conviene Más?"
       date="9 de julio, 2026"
       readTime="6 min"
-      image="/manus-storage/blog-paquetes-todo-incluido_e4ede43b.jpg"
+      image="/planeatuviaje/assets/resort-todo-incluido.png"
       slug="paquetes-todo-incluido-vs-viajar-separado"
       content={
         <>

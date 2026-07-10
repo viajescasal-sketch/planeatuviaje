@@ -60,14 +60,12 @@ export default function Footer() {
             {/* Brand */}
             <div className="lg:col-span-1">
               <div className="flex items-center gap-2 mb-4">
-                <img
-                  src="/manus-storage/LOGOVBCASALACOLORFONDOBLANCO.jpg_49faa729.webp"
-                  alt="Viajes Bumeran Casal"
-                  width="36"
-                  height="36"
-                  className="rounded-full"
-                  loading="lazy"
-                />
+                <span
+                  aria-hidden="true"
+                  className="grid h-9 w-9 place-items-center rounded-full bg-[#009FE3] text-xs font-extrabold text-white"
+                >
+                  VB
+                </span>
                 <div>
                   <span className="text-white font-bold text-lg leading-none block">Viajes Bumeran</span>
                   <span className="text-white/50 text-xs">Casal</span>

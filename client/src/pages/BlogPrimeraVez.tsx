@@ -9,7 +9,7 @@ export default function BlogPrimeraVez() {
       title="Cómo Planear un Viaje a la Playa por Primera Vez: Guía Paso a Paso"
       date="9 de julio, 2026"
       readTime="8 min"
-      image="/manus-storage/blog-playa-primera-vez_1d24e5f3.jpg"
+      image="/planeatuviaje/assets/familia-playa.png"
       slug="como-planear-viaje-playa-primera-vez"
       content={
         <>

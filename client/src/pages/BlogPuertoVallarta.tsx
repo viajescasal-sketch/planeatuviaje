@@ -9,7 +9,7 @@ export default function BlogPuertoVallarta() {
       title="Qué Hacer en Puerto Vallarta: Guía de Viaje para Tu Primera Vez"
       date="9 de julio, 2026"
       readTime="6 min"
-      image="/manus-storage/blog-puerto-vallarta_e9b69189.jpg"
+      image="/planeatuviaje/assets/puerto-vallarta.png"
       slug="que-hacer-puerto-vallarta-guia"
       content={
         <>

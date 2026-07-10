@@ -9,7 +9,7 @@ export default function BlogCancun() {
       title="Las 5 Mejores Playas de Cancún para Familias en 2026"
       date="9 de julio, 2026"
       readTime="5 min"
-      image="/manus-storage/blog-cancun-playas_4881807b.jpg"
+      image="/planeatuviaje/assets/cancun.png"
       slug="mejores-playas-cancun-familias"
       content={
         <>

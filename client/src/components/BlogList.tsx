@@ -20,7 +20,7 @@ const blogPosts: BlogPost[] = [
     id: "1",
     title: "Las 5 Mejores Playas de Cancún para Familias en 2026",
     excerpt: "Descubre las playas más seguras y tranquilas de Cancún, perfectas para viajar con niños. Aguas cristalinas, servicios cercanos y diversión garantizada.",
-    image: "/manus-storage/blog-cancun-playas_4881807b.jpg",
+    image: "/planeatuviaje/assets/cancun.png",
     date: "9 de julio, 2026",
     readTime: "5 min",
     slug: "mejores-playas-cancun-familias"
@@ -29,7 +29,7 @@ const blogPosts: BlogPost[] = [
     id: "2",
     title: "Qué Hacer en Puerto Vallarta: Guía de Viaje para Tu Primera Vez",
     excerpt: "Tu primer viaje a Puerto Vallarta merece ser perfecto. Descubre el Malecón, playas escondidas, liberación de tortugas marinas y experiencias inolvidables.",
-    image: "/manus-storage/blog-puerto-vallarta_e9b69189.jpg",
+    image: "/planeatuviaje/assets/puerto-vallarta.png",
     date: "9 de julio, 2026",
     readTime: "6 min",
     slug: "que-hacer-puerto-vallarta-guia"
@@ -38,7 +38,7 @@ const blogPosts: BlogPost[] = [
     id: "3",
     title: "Cómo Viajar a Los Cabos con Poco Presupuesto en 2026",
     excerpt: "Desmitificamos el mito de que Los Cabos es solo para millonarios. Aprende los secretos de experto para disfrutar del Mar de Cortés sin quebrar el cochinito.",
-    image: "/manus-storage/blog-los-cabos_0cdc5b23.jpg",
+    image: "/planeatuviaje/assets/los-cabos.png",
     date: "9 de julio, 2026",
     readTime: "7 min",
     slug: "viajar-los-cabos-poco-presupuesto"
@@ -47,7 +47,7 @@ const blogPosts: BlogPost[] = [
     id: "4",
     title: "Cómo Planear un Viaje a la Playa por Primera Vez: Guía Paso a Paso",
     excerpt: "¿Es tu primera vez organizando vacaciones? Te enseñamos cómo planear un viaje a la playa sin cometer errores costosos. Paso a paso, sin estrés.",
-    image: "/manus-storage/blog-playa-primera-vez_1d24e5f3.jpg",
+    image: "/planeatuviaje/assets/familia-playa.png",
     date: "9 de julio, 2026",
     readTime: "8 min",
     slug: "como-planear-viaje-playa-primera-vez"
@@ -56,7 +56,7 @@ const blogPosts: BlogPost[] = [
     id: "5",
     title: "Paquetes Todo Incluido vs. Viajar por Separado: ¿Cuál Conviene Más?",
     excerpt: "Analizamos los números: ¿Es realmente más caro un paquete todo incluido? Descubre por qué muchas veces es la opción más económica y segura.",
-    image: "/manus-storage/blog-paquetes-todo-incluido_e4ede43b.jpg",
+    image: "/planeatuviaje/assets/resort-todo-incluido.png",
     date: "9 de julio, 2026",
     readTime: "6 min",
     slug: "paquetes-todo-incluido-vs-viajar-separado"

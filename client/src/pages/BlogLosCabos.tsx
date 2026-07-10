@@ -9,7 +9,7 @@ export default function BlogLosCabos() {
       title="Cómo Viajar a Los Cabos con Poco Presupuesto en 2026"
       date="9 de julio, 2026"
       readTime="7 min"
-      image="/manus-storage/blog-los-cabos_0cdc5b23.jpg"
+      image="/planeatuviaje/assets/los-cabos.png"
       slug="viajar-los-cabos-poco-presupuesto"
       content={
         <>
