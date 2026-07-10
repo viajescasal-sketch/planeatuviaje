@@ -54,12 +54,13 @@ export default function Navbar() {
           className="flex items-center gap-2 text-decoration-none"
           aria-label="Viajes Casal - Inicio"
         >
-          <span
-            aria-hidden="true"
-            className="grid h-10 w-10 place-items-center rounded-full bg-[#009FE3] text-sm font-extrabold text-white shadow-sm"
-          >
-            VB
-          </span>
+          <img
+            src="/planeatuviaje/assets/logo-viajes-bumeran-casal.jpg"
+            alt="Viajes Bumeran Casal"
+            width="48"
+            height="48"
+            className="h-12 w-12 rounded-full bg-white object-contain shadow-sm"
+          />
           <div className="flex flex-col leading-tight">
             <span
               className={`font-bold text-lg leading-none transition-colors duration-300 ${

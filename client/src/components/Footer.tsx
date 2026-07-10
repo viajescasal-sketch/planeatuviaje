@@ -60,12 +60,14 @@ export default function Footer() {
             {/* Brand */}
             <div className="lg:col-span-1">
               <div className="flex items-center gap-2 mb-4">
-                <span
-                  aria-hidden="true"
-                  className="grid h-9 w-9 place-items-center rounded-full bg-[#009FE3] text-xs font-extrabold text-white"
-                >
-                  VB
-                </span>
+                <img
+                  src="/planeatuviaje/assets/logo-viajes-bumeran-casal.jpg"
+                  alt="Viajes Bumeran Casal"
+                  width="48"
+                  height="48"
+                  className="h-12 w-12 rounded-full bg-white object-contain"
+                  loading="lazy"
+                />
                 <div>
                   <span className="text-white font-bold text-lg leading-none block">Viajes Bumeran</span>
                   <span className="text-white/50 text-xs">Casal</span>
@@ -77,8 +79,8 @@ export default function Footer() {
               {/* Social */}
               <div className="flex gap-3">
                 <SocialLink href="https://www.facebook.com/share/1GjFtGYqvk/" label="Facebook" icon={<FacebookIcon />} />
-                <SocialLink href="https://www.tiktok.com/@viajes_bumeran_casal?_r=1&_t=ZS-97tnwvvVyF8" label="TikTok" icon={<TikTokIcon />} />
-                <SocialLink href="https://www.instagram.com/viaja.pau?igsh=bWZzeGphM2JveHV0&utm_source=qr" label="Instagram" icon={<InstagramIcon />} />
+                <SocialLink href="https://www.tiktok.com/@viajes_bumeran_casal?_r=1&_t=ZS-97tnwvvVyF8" label="TikTok" icon={<TikTokIconFixed />} />
+                <SocialLink href="https://www.instagram.com/viaja.pau?igsh=bWZzeGphM2JveHV0&utm_source=qr" label="Instagram" icon={<InstagramIconFixed />} />
                 <SocialLink href="https://youtube.com/@inspirateaviajar?si=x4N2enDjoUBr3QF_" label="YouTube" icon={<YouTubeIcon />} />
               </div>
             </div>
@@ -231,6 +233,25 @@ function YouTubeIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+    </svg>
+  );
+}
+
+function TikTokIconFixed() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M15 3v10.5a4.5 4.5 0 1 1-4.5-4.5" />
+      <path d="M15 3c.8 2.4 2.6 4 5 4.5" />
+    </svg>
+  );
+}
+
+function InstagramIconFixed() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
     </svg>
   );
 }

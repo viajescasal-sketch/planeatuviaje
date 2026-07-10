@@ -59,7 +59,7 @@ export default function Promotions() {
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
             <div>
               <span className="section-label" style={{ color: "#F5A623" }}>
-                Julio 2025
+          Julio 2026
               </span>
               <h2 id="promos-title" className="text-white font-extrabold leading-tight" style={{ fontSize: "clamp(2rem, 5vw, 3.25rem)" }}>
                 Oportunidades<br />

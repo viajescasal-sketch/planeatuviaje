@@ -66,10 +66,10 @@ export default function Hero() {
                 <FacebookIcon />
               </a>
               <a href="https://www.tiktok.com/@viajes_bumeran_casal?_r=1&_t=ZS-97tnwvvVyF8" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center text-white/70 hover:bg-[#009FE3] hover:text-white transition-all duration-200" aria-label="TikTok" title="Síguenos en TikTok">
-                <TikTokIcon />
+                <TikTokIconFixed />
               </a>
               <a href="https://www.instagram.com/viaja.pau?igsh=bWZzeGphM2JveHV0&utm_source=qr" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center text-white/70 hover:bg-[#009FE3] hover:text-white transition-all duration-200" aria-label="Instagram" title="Síguenos en Instagram">
-                <InstagramIcon />
+                <InstagramIconFixed />
               </a>
               <a href="https://youtube.com/@inspirateaviajar?si=x4N2enDjoUBr3QF_" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center text-white/70 hover:bg-[#009FE3] hover:text-white transition-all duration-200" aria-label="YouTube" title="Síguenos en YouTube">
                 <YouTubeIcon />
@@ -179,6 +179,25 @@ function YouTubeIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+    </svg>
+  );
+}
+
+function TikTokIconFixed() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M15 3v10.5a4.5 4.5 0 1 1-4.5-4.5" />
+      <path d="M15 3c.8 2.4 2.6 4 5 4.5" />
+    </svg>
+  );
+}
+
+function InstagramIconFixed() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
     </svg>
   );
 }
