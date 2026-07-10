@@ -5,7 +5,7 @@
  */
 import { useState } from "react";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
-import QuoteModal from "./QuoteModal";
+import TourQuoteModal from "./TourQuoteModal";
 
 const tours = [
   {
@@ -76,14 +76,14 @@ export default function Tours() {
   const { ref, visible } = useScrollAnimation();
   const [activeFilter, setActiveFilter] = useState("Todos");
   const [modalOpen, setModalOpen] = useState(false);
-  const [selectedDestino, setSelectedDestino] = useState("");
+  const [selectedTour, setSelectedTour] = useState("");
 
   const filtered = activeFilter === "Todos"
     ? tours
     : tours.filter((t) => t.categoria === activeFilter);
 
-  const handleQuote = (destino: string) => {
-    setSelectedDestino(destino);
+  const handleQuote = (tour: string) => {
+    setSelectedTour(tour);
     setModalOpen(true);
   };
 
@@ -179,7 +179,7 @@ export default function Tours() {
                     </div>
                   </div>
                   <button
-                    onClick={() => handleQuote(tour.destino)}
+                    onClick={() => handleQuote(tour.title)}
                     className="btn-secondary text-xs px-4 py-2"
                     aria-label={`Cotizar ${tour.title}`}
                   >
@@ -192,10 +192,10 @@ export default function Tours() {
         </div>
       </div>
 
-      <QuoteModal
+      <TourQuoteModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
-        defaultDestino={selectedDestino}
+        defaultTour={selectedTour}
       />
     </section>
   );
