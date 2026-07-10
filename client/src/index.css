@@ -523,6 +523,14 @@
     background: #F0F8FF;
   }
 
+  section[class*="bg-[#003F7D]"] > h2 {
+    color: #FFFFFF !important;
+  }
+
+  section[class*="bg-[#003F7D]"] > p {
+    color: rgba(255, 255, 255, 0.84) !important;
+  }
+
   /* ── Star rating ── */
   .stars {
     color: #F5A623;
