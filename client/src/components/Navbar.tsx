@@ -21,7 +21,7 @@ export default function Navbar() {
     { label: "Paquetes", href: "#paquetes" },
     { label: "Tours", href: "#tours" },
     { label: "Testimonios", href: "#testimonios" },
-    { label: "Blog", href: "/blog" },
+    { label: "Blog", href: "/planeatuviaje/blog" },
     { label: "FAQ", href: "#faq" },
     { label: "Contacto", href: "#contacto" },
   ];
