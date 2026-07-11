@@ -6,6 +6,7 @@
  */
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 import { useEffect } from "react";
+import { useLanguage } from "../contexts/LanguageContext";
 
 // Suppress ResizeObserver errors from Elfsight widget
 if (typeof window !== 'undefined') {
@@ -18,9 +19,11 @@ if (typeof window !== 'undefined') {
 }
 
 export default function Testimonials() {
+  const { language } = useLanguage();
   const { ref, visible } = useScrollAnimation();
 
   useEffect(() => {
+    if (language === "en") return;
     // Cargar el script de Elfsight
     const script = document.createElement("script");
     script.src = "https://elfsightcdn.com/platform.js";
@@ -33,7 +36,7 @@ export default function Testimonials() {
         document.body.removeChild(script);
       }
     };
-  }, []);
+  }, [language]);
 
   return (
     <section
@@ -75,12 +78,16 @@ export default function Testimonials() {
         {/* Google Reviews Widget — Elfsight */}
         <div className={`fade-in ${visible ? "visible" : ""}`} style={{ transitionDelay: "100ms" }}>
           <div className="w-full">
-            {/* Elfsight Google Reviews Widget */}
-            <div 
+            {language === "es" ? <div 
               className="elfsight-app-8b06e29f-8feb-44d8-bfa3-5753468c41b1" 
               data-elfsight-app-lazy
               style={{ minHeight: "400px" }}
-            />
+            /> : <div className="rounded-3xl border border-[#dcebf3] bg-white p-8 text-center shadow-sm">
+              <div className="mb-3 text-4xl">⭐</div>
+              <h3 className="text-xl font-bold text-[#1A2B3C]">Verified traveler reviews</h3>
+              <p className="mx-auto mt-2 max-w-xl text-sm leading-6 text-[#5a7080]">Our travelers highlight the personalized assistance, clear communication and support they receive before and during their trips.</p>
+              <p className="mt-4 font-bold text-[#009FE3]">4.9/5 average rating</p>
+            </div>}
           </div>
         </div>
       </div>
