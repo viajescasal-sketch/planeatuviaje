@@ -173,9 +173,10 @@ export default function Tours() {
                       <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                       {tour.duracion}
                     </span>
-                    <div className="flex items-baseline gap-1">
+                    <div className="flex flex-wrap items-baseline gap-1">
+                      <span className="text-xs font-semibold text-[#5a7080]">Desde</span>
                       <span className="text-lg font-extrabold text-[#1A2B3C]">{tour.precio}</span>
-                      <span className="text-xs text-gray-400">/ persona</span>
+                      <span className="text-xs text-gray-400">MXN / Por persona</span>
                     </div>
                   </div>
                   <button
