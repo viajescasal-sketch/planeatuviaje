@@ -7,6 +7,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import BlogList from "./components/BlogList";
 import BlogArticle from "./components/BlogArticle";
+import { LanguageProvider } from "./contexts/LanguageContext";
 
 
 function Router() {
@@ -15,6 +16,9 @@ function Router() {
       <Route path={"/"} component={Home} />
       <Route path={"/blog"} component={BlogList} />
       <Route path={"/blog/:slug"} component={BlogArticle} />
+      <Route path={"/en"} component={Home} />
+      <Route path={"/en/blog"} component={BlogList} />
+      <Route path={"/en/blog/:slug"} component={BlogArticle} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
@@ -35,10 +39,12 @@ function App() {
         // switchable
       >
         <WouterRouter base="/planeatuviaje">
-          <TooltipProvider>
-            <Toaster />
-            <Router />
-          </TooltipProvider>
+          <LanguageProvider>
+            <TooltipProvider>
+              <Toaster />
+              <Router />
+            </TooltipProvider>
+          </LanguageProvider>
         </WouterRouter>
       </ThemeProvider>
     </ErrorBoundary>

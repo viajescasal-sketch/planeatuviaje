@@ -4,8 +4,10 @@
  * Brand: Poppins, #009FE3, #F5A623
  */
 import { useState, useEffect } from "react";
+import { useLanguage } from "../contexts/LanguageContext";
 
 export default function Navbar() {
+  const { language, setLanguage } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -21,7 +23,7 @@ export default function Navbar() {
     { label: "Paquetes", href: "#paquetes" },
     { label: "Tours", href: "#tours" },
     { label: "Testimonios", href: "#testimonios" },
-    { label: "Blog", href: "/planeatuviaje/blog" },
+    { label: "Blog", href: language === "en" ? "/planeatuviaje/en/blog" : "/planeatuviaje/blog" },
     { label: "FAQ", href: "#faq" },
     { label: "Contacto", href: "#contacto" },
   ];
@@ -98,6 +100,11 @@ export default function Navbar() {
 
 
 
+        <div className={`hidden lg:flex items-center rounded-full border p-0.5 text-xs font-bold ${scrolled ? "border-slate-200 bg-slate-50" : "border-white/40 bg-white/10"}`} aria-label="Language selector">
+          <button onClick={() => setLanguage("es")} className={`rounded-full px-2 py-1 ${language === "es" ? "bg-[#009FE3] text-white" : scrolled ? "text-slate-600" : "text-white"}`}>ES</button>
+          <button onClick={() => setLanguage("en")} className={`rounded-full px-2 py-1 ${language === "en" ? "bg-[#009FE3] text-white" : scrolled ? "text-slate-600" : "text-white"}`}>EN</button>
+        </div>
+
         {/* CTA Button */}
         <a
           href="https://wa.me/529983921530?text=Hola,%20me%20interesa%20cotizar%20un%20viaje"
@@ -140,6 +147,10 @@ export default function Navbar() {
               </li>
             ))}
             <li className="pt-2">
+              <div className="mb-3 flex justify-center gap-2" aria-label="Language selector">
+                <button onClick={() => setLanguage("es")} className={`rounded-full px-4 py-2 text-sm font-bold ${language === "es" ? "bg-[#009FE3] text-white" : "bg-slate-100 text-slate-600"}`}>ES</button>
+                <button onClick={() => setLanguage("en")} className={`rounded-full px-4 py-2 text-sm font-bold ${language === "en" ? "bg-[#009FE3] text-white" : "bg-slate-100 text-slate-600"}`}>EN</button>
+              </div>
               <a
                 href="https://wa.me/529983921530?text=Hola,%20me%20interesa%20cotizar%20un%20viaje"
                 target="_blank"
