@@ -103,7 +103,8 @@ export default function Promotions() {
               <div className="flex flex-wrap items-center gap-6">
                 <div>
                   <span className="text-white/60 text-sm line-through">{promos[0].oldPrice}</span>
-                  <div className="text-white font-extrabold text-3xl"><span className="text-sm font-semibold text-white/80">Desde </span>{promos[0].price} <span className="text-sm font-normal text-white/70">MXN / Por persona</span></div>
+                  <span className="block text-sm font-semibold text-white/80">Desde</span>
+                  <div className="text-white font-extrabold text-3xl">{promos[0].price} <span className="text-sm font-normal text-white/70">MXN / Por persona</span></div>
                   <p className="text-[#F5A623] text-xs font-semibold mt-1">⏰ {promos[0].validUntil}</p>
                 </div>
                 <a
@@ -147,7 +148,8 @@ export default function Promotions() {
                 <div className="flex items-center justify-between">
                   <div>
                     <span className="text-white/50 text-xs line-through">{promo.oldPrice}</span>
-                    <div className="text-white font-extrabold text-xl"><span className="text-xs font-semibold text-white/80">Desde </span>{promo.price} <span className="text-xs font-normal text-white/70">MXN / Por persona</span></div>
+                    <span className="block text-xs font-semibold text-white/80">Desde</span>
+                    <div className="text-white font-extrabold text-xl">{promo.price} <span className="text-xs font-normal text-white/70">MXN / Por persona</span></div>
                     <p className="text-[#F5A623] text-xs font-semibold">⏰ {promo.validUntil}</p>
                   </div>
                   <a

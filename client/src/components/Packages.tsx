@@ -180,11 +180,13 @@ export default function Packages() {
                 </ul>
 
                 {/* Price */}
-                <div className="flex flex-wrap items-baseline gap-2 mb-5 pb-4 border-b border-gray-100">
-                  <span className="text-xs font-semibold text-[#5a7080]">Desde</span>
-                  <span className="text-2xl font-extrabold text-[#1A2B3C]">{pkg.precio} <small className="text-xs font-bold">MXN</small></span>
-                  <span className="text-sm text-gray-400 line-through">{pkg.precioOld}</span>
-                  <span className="text-xs text-gray-400">/ Por persona</span>
+                <div className="mb-5 pb-4 border-b border-gray-100">
+                  <span className="mb-1 block text-xs font-semibold text-[#5a7080]">Desde</span>
+                  <div className="flex flex-wrap items-baseline gap-2">
+                    <span className="text-2xl font-extrabold text-[#1A2B3C]">{pkg.precio} <small className="text-xs font-bold">MXN</small></span>
+                    <span className="text-sm text-gray-400 line-through">{pkg.precioOld}</span>
+                    <span className="text-xs text-gray-400">/ Por persona</span>
+                  </div>
                 </div>
 
                 {/* CTA */}
