@@ -61,7 +61,7 @@ export default function Footer() {
             <div className="lg:col-span-1">
               <div className="flex items-center gap-2 mb-4">
                 <img
-                  src="/planeatuviaje/assets/logo-viajes-bumeran-casal.jpg"
+                  src="/assets/logo-viajes-bumeran-casal.jpg"
                   alt="Viajes Bumeran Casal"
                   width="48"
                   height="48"
