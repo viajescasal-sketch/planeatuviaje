@@ -38,8 +38,8 @@ function App() {
         defaultTheme="light"
         // switchable
       >
-        <WouterRouter base="/planeatuviaje">
-          <LanguageProvider>
+      <WouterRouter>
+              <LanguageProvider>
             <TooltipProvider>
               <Toaster />
               <Router />
