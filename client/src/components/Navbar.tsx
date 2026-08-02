@@ -24,14 +24,17 @@ export default function Navbar() {
     { label: "Tours", href: "#tours" },
     { label: "Testimonios", href: "#testimonios" },
     { label: "Blog", href: language === "en" ? "/en/blog" : "/blog" },
+    { label: "Kit del Viajero", href: "https://kit.viajescasal.com", external: true },
     { label: "FAQ", href: "#faq" },
     { label: "Contacto", href: "#contacto" },
   ];
 
-  const handleNavClick = (href: string) => {
+const handleNavClick = (href: string, external?: boolean) => {
     setMenuOpen(false);
-    if (href.startsWith("/")) {
-      window.location.href = href;
+    if (external) {
+          window.open(href, "_blank", "noopener,noreferrer");
+    } else if (href.startsWith("/")) {
+          window.location.href = href;
     } else {
       const el = document.querySelector(href);
       if (el) el.scrollIntoView({ behavior: "smooth" });
@@ -87,7 +90,9 @@ export default function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
-                onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
+                target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noopener noreferrer" : undefined}
+                onClick={(e) => { e.preventDefault(); handleNavClick(link.href, link.external); }}
                 className={`text-sm font-medium transition-colors duration-200 hover:text-[#009FE3] no-underline ${
                   scrolled ? "text-[#1A2B3C]" : "text-white/90"
                 }`}
@@ -139,7 +144,9 @@ export default function Navbar() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
+                  target={link.external ? "_blank" : undefined}
+                    rel={link.external ? "noopener noreferrer" : undefined}
+                  onClick={(e) => { e.preventDefault(); handleNavClick(link.href, link.external); }}
                   className="block py-3 px-4 text-[#1A2B3C] font-medium text-sm rounded-lg hover:bg-blue-50 hover:text-[#009FE3] transition-colors no-underline"
                 >
                   {link.label}
