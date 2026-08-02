@@ -23,7 +23,7 @@ export default function Navbar() {
     { label: "Paquetes", href: "#paquetes" },
     { label: "Tours", href: "#tours" },
     { label: "Testimonios", href: "#testimonios" },
-    { label: "Blog", href: language === "en" ? "/planeatuviaje/en/blog" : "/planeatuviaje/blog" },
+    { label: "Blog", href: language === "en" ? "/en/blog" : "/blog" },
     { label: "FAQ", href: "#faq" },
     { label: "Contacto", href: "#contacto" },
   ];
