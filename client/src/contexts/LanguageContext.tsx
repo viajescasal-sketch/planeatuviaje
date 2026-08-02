@@ -182,13 +182,13 @@ function translateTree(language: Language) {
 }
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const pathLanguage: Language = window.location.pathname.includes("/planeatuviaje/en") ? "en" : "es";
+  const pathLanguage: Language = window.location.pathname.startsWith("/en") ? "en" : "es";
   const [language, updateLanguage] = useState<Language>(pathLanguage || (localStorage.getItem("vc-language") as Language) || "es");
   const setLanguage = (next: Language) => {
     localStorage.setItem("vc-language", next);
     let path = window.location.pathname;
-    if (next === "en" && !path.includes("/planeatuviaje/en")) path = path.replace("/planeatuviaje", "/planeatuviaje/en");
-    if (next === "es") path = path.replace("/planeatuviaje/en", "/planeatuviaje");
+    if (next === "en" && !path.startsWith("/en")) path = "/en" + (path === "/" ? "" : path);
+    if (next === "es") path = path.replace(/^\/en/, "") || "/";
     window.history.replaceState({}, "", path + window.location.search + window.location.hash);
     updateLanguage(next);
   };
