@@ -57,7 +57,7 @@ export default function Navbar() {
           aria-label="Viajes Casal - Inicio"
         >
           <img
-            src="/planeatuviaje/assets/logo-viajes-bumeran-casal.jpg"
+            src="/assets/logo-viajes-bumeran-casal.jpg"
             alt="Viajes Bumeran Casal"
             width="48"
             height="48"
