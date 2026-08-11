@@ -24,7 +24,6 @@ export default function Navbar() {
     { label: "Tours", href: "#tours" },
     { label: "Testimonios", href: "#testimonios" },
     { label: "Blog", href: language === "en" ? "/en/blog" : "/blog" },
-    { label: "Kit del Viajero", href: "https://kit.viajescasal.com", external: true },
     { label: "FAQ", href: "#faq" },
     { label: "Contacto", href: "#contacto" },
   ];
