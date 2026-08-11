@@ -3,6 +3,7 @@
  * Design: Dark ocean gradient, CTA final, links, social
  * Bottom section: copyright
  */
+import { Link } from "wouter";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -159,12 +160,12 @@ export default function Footer() {
               © {currentYear} Viajes Casal. Todos los derechos reservados.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="text-white/40 text-xs hover:text-white/70 transition-colors no-underline">
+              <Link href="/aviso-de-privacidad" className="text-white/40 text-xs hover:text-white/70 transition-colors no-underline">
                 Aviso de privacidad
-              </a>
-              <a href="#" className="text-white/40 text-xs hover:text-white/70 transition-colors no-underline">
+              </Link>
+              <Link href="/terminos-y-condiciones" className="text-white/40 text-xs hover:text-white/70 transition-colors no-underline">
                 Términos y condiciones
-              </a>
+              </Link>
             </div>
           </div>
         </div>
