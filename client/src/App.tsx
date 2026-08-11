@@ -5,6 +5,7 @@ import { Route, Router as WouterRouter, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+import LegalTermsPrivacy from "./pages/LegalTermsPrivacy";
 import BlogList from "./components/BlogList";
 import BlogArticle from "./components/BlogArticle";
 import { LanguageProvider } from "./contexts/LanguageContext";
@@ -20,6 +21,8 @@ function Router() {
       <Route path={"/en/blog"} component={BlogList} />
       <Route path={"/en/blog/:slug"} component={BlogArticle} />
       <Route path={"/404"} component={NotFound} />
+      <Route path={"/aviso-de-privacidad"} component={LegalTermsPrivacy} />
+      <Route path={"/terminos-y-condiciones"} component={LegalTermsPrivacy} />
       {/* Final fallback route */}
       <Route component={NotFound} />
     </Switch>
