@@ -57,8 +57,8 @@ ${form.mensaje}`;
               <ContactCard
                 icon={<WhatsAppIcon />}
                 title="WhatsApp"
-                value="+52 998 743 7557"
-                link="https://wa.me/529987437557"
+                value="+52 998 392 1530"
+                link="https://wa.me/529983921530"
                 color="#25D366"
               />
               <ContactCard
