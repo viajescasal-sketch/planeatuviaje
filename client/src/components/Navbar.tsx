@@ -20,6 +20,7 @@ export default function Navbar() {
   const navLinks = [
     { label: "Inicio", href: "#inicio" },
     { label: "Beneficios", href: "#beneficios" },
+    { label: "Tu Travel Partner", href: "https://paulina.viajescasal.com/", external: true },
     { label: "Paquetes", href: "#paquetes" },
     { label: "Tours", href: "#tours" },
     { label: "Testimonios", href: "#testimonios" },
