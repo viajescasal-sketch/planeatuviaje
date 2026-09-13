@@ -7,7 +7,7 @@
  * (solo se actualiza precio y orden); los que la campaña reemplaza por nombre/copy
  * nuevo se marcan abajo; el resto son incorporaciones nuevas del catálogo.
  */
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 import TourQuoteModal from "./TourQuoteModal";
 
@@ -176,6 +176,7 @@ export default function Tours() {
   const [activeFilter, setActiveFilter] = useState("Todos");
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedTour, setSelectedTour] = useState("");
+  const scrollerRef = useRef<HTMLDivElement>(null);
 
   const filtered = activeFilter === "Todos"
     ? tours
@@ -184,6 +185,12 @@ export default function Tours() {
   const handleQuote = (tour: string) => {
     setSelectedTour(tour);
     setModalOpen(true);
+  };
+
+  const scrollByCard = (dir: 1 | -1) => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    el.scrollBy({ left: dir * el.clientWidth * 0.85, behavior: "smooth" });
   };
 
   return (
@@ -233,7 +240,24 @@ export default function Tours() {
         </div>
 
         {/* Tour Cards — carrusel horizontal */}
-        <div className="h-scroll flex gap-5 sm:gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth -mx-1 px-1 pt-2 pb-8">
+        <div className="relative">
+          <button
+            type="button"
+            onClick={() => scrollByCard(-1)}
+            className="hidden sm:flex absolute left-1 top-[108px] -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg items-center justify-center text-[#006B9A] hover:bg-blue-50 hover:text-[#009FE3] transition-colors"
+            aria-label="Ver tours anteriores"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6" /></svg>
+          </button>
+          <button
+            type="button"
+            onClick={() => scrollByCard(1)}
+            className="hidden sm:flex absolute right-1 top-[108px] -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg items-center justify-center text-[#006B9A] hover:bg-blue-50 hover:text-[#009FE3] transition-colors"
+            aria-label="Ver más tours"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6" /></svg>
+          </button>
+          <div ref={scrollerRef} className="h-scroll flex gap-5 sm:gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth -mx-1 px-1 pt-2 pb-8">
           {filtered.map((tour, i) => (
             <article
               key={tour.id}
@@ -303,6 +327,7 @@ export default function Tours() {
               </div>
             </article>
           ))}
+          </div>
         </div>
 
         {/* Bottom note */}

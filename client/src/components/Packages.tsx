@@ -7,7 +7,7 @@
  * (Booking, Bestday, PriceTravel, Expedia) — validar tarifa final con el
  * mayorista antes de cotizar a un cliente.
  */
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 import QuoteModal from "./QuoteModal";
 
@@ -156,6 +156,13 @@ export default function Packages() {
   const { ref, visible } = useScrollAnimation();
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedDestino, setSelectedDestino] = useState("");
+  const scrollerRef = useRef<HTMLDivElement>(null);
+
+  const scrollByCard = (dir: 1 | -1) => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    el.scrollBy({ left: dir * el.clientWidth * 0.85, behavior: "smooth" });
+  };
 
   const handleQuote = (destino: string) => {
     setSelectedDestino(destino);
@@ -184,11 +191,15 @@ export default function Packages() {
               </h2>
               <div className="gold-divider" />
             </div>
-            <div
-              className="flex items-start gap-4 sm:gap-6"
-              role="img"
-              aria-label="Cada paquete incluye vuelo, hotel y traslados armados según tu ciudad de origen, con un beneficio adicional que no afecta lo que ya cotizamos contigo"
-            >
+            <div className="flex flex-col items-start lg:items-end gap-4">
+              <p className="text-base font-bold text-[#1A2B3C] lg:text-right max-w-sm leading-snug">
+                Paquetes de viaje todo incluido: <span style={{ color: "#009FE3" }}>vuelo, hotel y traslados</span> en un solo precio
+              </p>
+              <div
+                className="flex items-start gap-4 sm:gap-6"
+                role="img"
+                aria-label="Cada paquete incluye vuelo, hotel y traslados armados según tu ciudad de origen, con un beneficio adicional que no afecta lo que ya cotizamos contigo"
+              >
               {[
                 {
                   label: "Vuelo",
@@ -237,12 +248,30 @@ export default function Packages() {
                   <span className="text-[11px] font-semibold text-[#5a7080] whitespace-nowrap">{item.label}</span>
                 </div>
               ))}
+              </div>
             </div>
           </div>
         </div>
 
         {/* Package Cards — carrusel horizontal */}
-        <div className="h-scroll flex gap-6 sm:gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth -mx-1 px-1 pt-2 pb-8">
+        <div className="relative">
+          <button
+            type="button"
+            onClick={() => scrollByCard(-1)}
+            className="hidden sm:flex absolute left-1 top-[118px] -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg items-center justify-center text-[#006B9A] hover:bg-blue-50 hover:text-[#009FE3] transition-colors"
+            aria-label="Ver paquetes anteriores"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6" /></svg>
+          </button>
+          <button
+            type="button"
+            onClick={() => scrollByCard(1)}
+            className="hidden sm:flex absolute right-1 top-[118px] -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg items-center justify-center text-[#006B9A] hover:bg-blue-50 hover:text-[#009FE3] transition-colors"
+            aria-label="Ver más paquetes"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6" /></svg>
+          </button>
+          <div ref={scrollerRef} className="h-scroll flex gap-6 sm:gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth -mx-1 px-1 pt-2 pb-8">
           {packages.map((pkg, i) => (
             <article
               key={pkg.id}
@@ -339,6 +368,7 @@ export default function Packages() {
               </div>
             </article>
           ))}
+          </div>
         </div>
 
         {/* Bottom note */}
