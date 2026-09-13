@@ -31,7 +31,7 @@ export default function BlogArticle() {
     const canonicalUrl = `${window.location.origin}${prefix}/blog/${article.slug}`;
     let canonical = document.head.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
     if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); } canonical.href = canonicalUrl;
-    const script = document.createElement("script"); script.type = "application/ld+json"; script.id = "blog-posting-schema"; script.text = JSON.stringify({ "@context": "https://schema.org", "@type": "BlogPosting", headline: article.seoTitle, description: article.description, image: article.image, datePublished: "2026-07-10", author: { "@type": "Organization", name: "Viajes Casal" }, publisher: { "@type": "Organization", name: "Viajes Casal" }, mainEntityOfPage: canonicalUrl, keywords: article.keyword });
+    const script = document.createElement("script"); script.type = "application/ld+json"; script.id = "blog-posting-schema"; script.text = JSON.stringify({ "@context": "https://schema.org", "@type": "BlogPosting", headline: article.seoTitle, description: article.description, image: article.image, datePublished: article.isoDate, dateModified: article.isoDate, inLanguage: "es-MX", articleSection: article.category, author: { "@type": "Organization", name: "Viajes Casal" }, publisher: { "@type": "Organization", name: "Viajes Casal", logo: { "@type": "ImageObject", url: `${window.location.origin}/assets/logo-viajes-bumeran-casal.jpg` } }, mainEntityOfPage: canonicalUrl, keywords: article.keyword });
     document.getElementById(script.id)?.remove(); document.head.appendChild(script);
     return () => { script.remove(); };
   }, [article, prefix]);

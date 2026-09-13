@@ -283,7 +283,7 @@ export default function Packages() {
               <div className="pkg-img-wrap relative">
                 <img
                   src={pkg.img}
-                  alt={`Vista de ${pkg.destino}`}
+                  alt={`Paquete todo incluido a ${pkg.destino} ${pkg.origen} — ${pkg.hotel}`}
                   loading="lazy"
                 />
                 {/* Gradient overlay */}

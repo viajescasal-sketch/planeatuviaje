@@ -269,7 +269,7 @@ export default function Tours() {
               <div className="tour-img-wrap relative">
                 <img
                   src={tour.img}
-                  alt={tour.title}
+                  alt={`${tour.title} en ${tour.destino} — tour con Viajes Casal`}
                   loading="lazy"
                 />
                 {/* Category badge */}

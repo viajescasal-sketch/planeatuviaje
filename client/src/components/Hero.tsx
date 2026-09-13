@@ -78,6 +78,7 @@ export default function Hero() {
 
             {/* Headline */}
             <h1 className="text-white font-extrabold leading-tight mb-6" style={{ fontSize: "clamp(2.5rem, 6vw, 4.5rem)" }}>
+              <span className="sr-only">Agencia de viajes en Cancún: paquetes todo incluido a Cancún, Riviera Maya, Puerto Vallarta y Los Cabos. </span>
               Nosotros nos encargamos{" "}
               <span style={{ color: "#F5A623" }}>de todo.</span>
               <br />
