@@ -2,75 +2,174 @@
  * Tours — Viajes Casal
  * Design: Editorial grid, aspirational imagery, concierge voice
  * Section: Tours Destacados
+ * Actualizado: catálogo alineado a la Campaña Publicitaria (temporada Sep–Dic 2026).
+ * Los tours que ya existían con su propia descripción/imagen la conservan tal cual
+ * (solo se actualiza precio y orden); los que la campaña reemplaza por nombre/copy
+ * nuevo se marcan abajo; el resto son incorporaciones nuevas del catálogo.
  */
 import { useState } from "react";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 import TourQuoteModal from "./TourQuoteModal";
 
 const tours = [
+  // ---- Tendencia de temporada (primero) ----
   {
-    id: "xcaret",
-    title: "Xcaret + Xel-Há",
-    destino: "Cancún",
-    img: "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=600&q=85",
-    duracion: "2 días",
-    precio: "$3,200",
-    desc: "Los parques acuáticos y culturales más emblemáticos de la Riviera Maya.",
-    categoria: "Naturaleza",
-  },
-  {
-    id: "chichen",
-    title: "Chichén Itzá + Cenote",
-    destino: "Cancún",
-    img: "https://images.unsplash.com/photo-1518638150340-f706e86654de?w=600&q=85",
-    duracion: "1 día",
-    precio: "$1,800",
-    desc: "Visita la maravilla del mundo maya y nada en un cenote sagrado.",
-    categoria: "Cultura",
-  },
-  {
+    // Ya existía — se respeta título, descripción e imagen originales. Solo precio y orden.
     id: "whale",
     title: "Avistamiento de Ballenas",
     destino: "Los Cabos",
     img: "https://images.unsplash.com/photo-1568430462989-44163eb1752f?w=600&q=85",
     duracion: "4 horas",
-    precio: "$1,200",
+    precio: "$1,600",
     desc: "Observa ballenas jorobadas en su hábitat natural en el Mar de Cortés.",
     categoria: "Aventura",
+    cta: "Cotizar",
+    tendencia: "🐋 Temporada Ballenas",
   },
   {
+    // Nuevo — no existía en el catálogo.
+    id: "xoximilco",
+    title: "Xoximilco",
+    destino: "Cancún",
+    img: "https://images.unsplash.com/photo-1564762332974-5bf63a654c9d?w=600&q=85",
+    duracion: "5 horas",
+    precio: "$2,100",
+    headline: "La fiesta mexicana que no sabías que necesitabas en Cancún.",
+    desc: "Barra libre de tequila y cerveza, música en vivo, trajineras y mariachi.",
+    categoria: "Fiesta Mexicana",
+    cta: "Resérvalo antes de que se llene tu fecha",
+    tendencia: "🇲🇽 Mes Patrio",
+  },
+  // ---- Reemplazos: mismo tour, nombre/descripción/precio actualizados a la campaña ----
+  {
+    // Reemplaza "Snorkel en Isla Mujeres"
+    id: "catamaran",
+    title: "Catamarán Isla Mujeres",
+    destino: "Cancún",
+    img: "https://images.unsplash.com/photo-1585094744214-ebb557f6e886?w=600&q=85",
+    duracion: "6 horas",
+    precio: "$2,200",
+    headline: "No sabes nadar bien y aun así quieres ver el arrecife.",
+    desc: "Chaleco, guía y snorkel incluidos. Tú solo disfruta.",
+    categoria: "Aventura",
+    cta: "Pregúntanos por WhatsApp",
+  },
+  {
+    // Reemplaza "Chichén Itzá + Cenote"
+    id: "chichen",
+    title: "Chichén Itzá Deluxe",
+    destino: "Cancún",
+    img: "https://images.unsplash.com/photo-1561577101-aa749bffbb70?w=600&q=85",
+    duracion: "10 horas",
+    precio: "$2,900",
+    headline: "Ir solo a Chichén Itzá suena más fácil de lo que es.",
+    desc: "Te contamos qué nadie te dice antes de reservar.",
+    categoria: "Cultura",
+    cta: "Escríbenos tus fechas",
+  },
+  {
+    // Reemplaza la mitad "Xcaret" del combo "Xcaret + Xel-Há"
+    id: "xcaret-plus",
+    title: "Xcaret Plus",
+    destino: "Riviera Maya",
+    img: "https://images.unsplash.com/photo-1766776341444-f8f5c95693cc?w=600&q=85",
+    duracion: "1 día",
+    precio: "$2,800",
+    headline: "Un parque, un día, cero pendientes.",
+    desc: "Buffet, snorkel y transporte ya incluidos. Solo trae ganas de disfrutar.",
+    categoria: "Naturaleza",
+    cta: "Arma tu combo por WhatsApp",
+  },
+  {
+    // Reemplaza la mitad "Xel-Há" del combo "Xcaret + Xel-Há"
+    id: "xelha",
+    title: "Xel-Há Todo Incluido",
+    destino: "Riviera Maya",
+    img: "https://images.unsplash.com/photo-1615695478392-af177ac550b9?w=600&q=85",
+    duracion: "6 horas",
+    precio: "$2,300",
+    headline: "El agua más clara que vas a ver en tu vida está a 90 minutos de tu hotel.",
+    desc: "Snorkel ilimitado, tobogán y tirolesas incluidos.",
+    categoria: "Naturaleza",
+    cta: "Pregunta fechas disponibles",
+  },
+  // ---- Nuevos ----
+  {
+    id: "xplor",
+    title: "Xplor",
+    destino: "Riviera Maya",
+    img: "https://images.unsplash.com/photo-1648853070657-6d58398bee93?w=600&q=85",
+    duracion: "5 horas",
+    precio: "$2,500",
+    headline: "Para los que quieren adrenalina sin organizar nada.",
+    desc: "Te armamos el combo perfecto según tu grupo: tirolesas, vehículo anfibio y cuevas.",
+    categoria: "Aventura",
+    cta: "Escríbenos y cotizamos",
+  },
+  {
+    id: "marietas",
+    title: "Islas Marietas",
+    destino: "Puerto Vallarta",
+    img: "https://images.unsplash.com/photo-1707066991531-604564b0c558?w=600&q=85",
+    duracion: "4 horas",
+    precio: "$1,800",
+    headline: "La playa que solo se ve desde adentro de una cueva. Literal.",
+    desc: "Cupo limitado por día. Snorkel incluido en la playa escondida.",
+    categoria: "Naturaleza",
+    cta: "Pregunta disponibilidad",
+  },
+  {
+    // Reemplaza "Sunset Cruise en Catamarán"
+    id: "rhythms",
+    title: "Rhythms of the Night",
+    destino: "Puerto Vallarta",
+    img: "https://images.unsplash.com/photo-1639244132045-94c307ff4bfc?w=600&q=85",
+    duracion: "4 horas",
+    precio: "$2,400",
+    headline: "La cena que van a recordar más que el hotel.",
+    desc: "Ideal para aniversarios y lunas de miel. Cupo limitado, reserva con anticipación.",
+    categoria: "Romance",
+    cta: "Aparta tu fecha",
+  },
+  {
+    // Ya existía — se respeta título, descripción e imagen originales. Solo precio y orden.
     id: "malecon",
     title: "Tour Gastronómico Malecón",
     destino: "Puerto Vallarta",
     img: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=85",
     duracion: "3 horas",
-    precio: "$950",
+    precio: "$1,700",
     desc: "Descubre los mejores sabores de la cocina jalisciense junto al mar.",
     categoria: "Gastronomía",
+    cta: "Cotizar",
   },
   {
-    id: "snorkel",
-    title: "Snorkel en Isla Mujeres",
-    destino: "Cancún",
-    img: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=85",
-    duracion: "6 horas",
-    precio: "$1,500",
-    desc: "Explora los arrecifes de coral más coloridos del Caribe mexicano.",
-    categoria: "Aventura",
-  },
-  {
-    id: "sunset",
-    title: "Sunset Cruise en Catamarán",
-    destino: "Puerto Vallarta",
-    img: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600&q=85",
+    id: "arco",
+    title: "El Arco + Playa del Amor",
+    destino: "Los Cabos",
+    img: "https://images.unsplash.com/photo-1580846629083-02669741360a?w=600&q=85",
     duracion: "3 horas",
-    precio: "$1,100",
-    desc: "Navega al atardecer con cóctel de bienvenida y música en vivo.",
-    categoria: "Romance",
+    precio: "$950",
+    headline: "La foto que todos hacen en Cabo, sin perder medio día organizándola.",
+    desc: "Salidas todos los días, tour corto en lancha.",
+    categoria: "Naturaleza",
+    cta: "Reserva tu horario",
+  },
+  {
+    id: "atv",
+    title: "ATV en el Desierto",
+    destino: "Los Cabos",
+    img: "https://images.unsplash.com/photo-1747485009413-0b58e646367c?w=600&q=85",
+    duracion: "3 horas",
+    precio: "$1,950",
+    headline: "Para el que no quiere solo playa en Cabo.",
+    desc: "Equipo y guía incluidos. Recorrido por dunas al atardecer.",
+    categoria: "Aventura",
+    cta: "Escríbenos por WhatsApp",
   },
 ];
 
-const categorias = ["Todos", "Naturaleza", "Cultura", "Aventura", "Gastronomía", "Romance"];
+const categorias = ["Todos", "Naturaleza", "Cultura", "Aventura", "Fiesta Mexicana", "Gastronomía", "Romance"];
 
 export default function Tours() {
   const { ref, visible } = useScrollAnimation();
@@ -109,7 +208,7 @@ export default function Tours() {
               <div className="gold-divider" />
             </div>
             <p className="section-subtitle lg:text-right max-w-sm">
-              Actividades únicas seleccionadas para complementar tu viaje y crear recuerdos que duran toda la vida.
+              Los favoritos de la temporada, primero. Actividades únicas seleccionadas para complementar tu viaje y crear recuerdos que duran toda la vida.
             </p>
           </div>
         </div>
@@ -160,11 +259,25 @@ export default function Tours() {
                 >
                   {tour.destino}
                 </div>
+                {/* Temporada / tendencia ribbon */}
+                {tour.tendencia && (
+                  <div
+                    className="absolute bottom-3 left-3 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md"
+                    style={{ background: "linear-gradient(135deg, #F5A623, #e09510)" }}
+                  >
+                    {tour.tendencia}
+                  </div>
+                )}
               </div>
 
               {/* Content */}
               <div className="p-5">
-                <h3 className="font-bold text-[#1A2B3C] text-base mb-2">{tour.title}</h3>
+                <h3 className="font-bold text-[#1A2B3C] text-base mb-1.5">{tour.title}</h3>
+                {tour.headline && (
+                  <p className="text-xs italic text-[#009FE3] font-medium mb-2 leading-snug">
+                    "{tour.headline}"
+                  </p>
+                )}
                 <p className="text-sm text-[#5a7080] mb-4 leading-relaxed">{tour.desc}</p>
 
                 <div className="flex items-center justify-between pt-3 border-t border-gray-100">
@@ -184,13 +297,18 @@ export default function Tours() {
                     className="btn-secondary text-xs px-4 py-2"
                     aria-label={`Cotizar ${tour.title}`}
                   >
-                    Cotizar
+                    {tour.cta}
                   </button>
                 </div>
               </div>
             </article>
           ))}
         </div>
+
+        {/* Bottom note */}
+        <p className={`text-center text-sm text-[#5a7080] mt-8 fade-in ${visible ? "visible" : ""}`} style={{ transitionDelay: "400ms" }}>
+          Precios de referencia por persona. Sujetos a disponibilidad y confirmación con el proveedor.
+        </p>
       </div>
 
       <TourQuoteModal

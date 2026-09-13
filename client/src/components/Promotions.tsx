@@ -2,40 +2,42 @@
  * Promotions — Viajes Casal
  * Design: Editorial luxury layout — asymmetric, aspirational
  * No coupon/marketplace feel: "exclusive curated opportunities"
- * Section: Promociones de Julio
+ * Section: Promociones de Septiembre — edición Mes Patrio
+ * Toque estacional: franja tricolor + copy alusivo a septiembre,
+ * sin romper la identidad azul/dorado de la marca.
  */
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 import CountdownTimer from "./CountdownTimer";
 
 const promos = [
   {
-    badge: "Oferta Exclusiva · Julio",
+    badge: "🇲🇽 Fiestas Patrias · Septiembre",
     title: "Cancún Todo Incluido",
-    desc: "Cinco noches en un resort frente al mar con servicio de primera. Vuelo redondo incluido desde Ciudad de México.",
-    price: "$12,500",
-    oldPrice: "$16,800",
-    img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=85",
-    validUntil: "Disponible hasta el 31 de julio",
+    desc: "Cinco noches en un resort frente al mar todo incluido. Vuelo redondo desde CDMX y traslados redondos sin costo.",
+    price: "$10,900",
+    oldPrice: "$12,900",
+    img: "https://images.unsplash.com/photo-1564762332974-5bf63a654c9d?w=800&q=85",
+    validUntil: "Disponible todo septiembre",
     highlight: true,
   },
   {
-    badge: "Escapada Romántica",
-    title: "Puerto Vallarta",
-    desc: "Cuatro noches en suite con vista al Pacífico. Cena privada en la playa incluida para dos.",
-    price: "$9,800",
-    oldPrice: "$13,200",
-    img: "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800&q=85",
-    validUntil: "Disponible hasta el 25 de julio",
+    badge: "Acceso a Xcaret Incluido",
+    title: "Riviera Maya",
+    desc: "Cuatro noches frente a los parques Xcaret. Un día de parque incluido, sin costo extra.",
+    price: "$9,200",
+    oldPrice: "$10,900",
+    img: "https://images.unsplash.com/photo-1693343972851-af02947e60d4?w=800&q=85",
+    validUntil: "Disponible hasta el 30 de septiembre",
     highlight: false,
   },
   {
-    badge: "Aventura de Lujo",
+    badge: "Antes de Temporada Alta",
     title: "Los Cabos",
-    desc: "Tres noches con experiencias únicas: snorkel, kayak y tour al Arco. Hotel boutique de lujo incluido.",
-    price: "$8,200",
-    oldPrice: "$11,500",
-    img: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=85",
-    validUntil: "Disponible hasta el 28 de julio",
+    desc: "Adelántate a la temporada de ballenas (dic–mar). Hotel todo incluido y traslados ya resueltos.",
+    price: "$15,000",
+    oldPrice: "$17,600",
+    img: "https://images.unsplash.com/photo-1580846629083-02669741360a?w=800&q=85",
+    validUntil: "Cupo limitado para noviembre y diciembre",
     highlight: false,
   },
 ];
@@ -59,11 +61,11 @@ export default function Promotions() {
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
             <div>
               <span className="section-label" style={{ color: "#F5A623" }}>
-          Julio 2026
+                🇲🇽 Septiembre 2026 · Mes Patrio
               </span>
               <h2 id="promos-title" className="text-white font-extrabold leading-tight" style={{ fontSize: "clamp(2rem, 5vw, 3.25rem)" }}>
-                Oportunidades<br />
-                <span style={{ color: "#F5A623" }}>exclusivas</span> de este mes
+                Este septiembre,<br />
+                <span style={{ color: "#F5A623" }}>viaja tu México</span> tranquilo
               </h2>
             </div>
             <div className="flex flex-col gap-4">
@@ -73,8 +75,12 @@ export default function Promotions() {
               <CountdownTimer />
             </div>
           </div>
-          {/* Gold divider */}
-          <div className="mt-6 w-16 h-0.5 bg-[#F5A623]" />
+          {/* Tricolor divider — acento de temporada patria */}
+          <div className="mt-6 flex w-24 h-1 rounded-full overflow-hidden" role="presentation" aria-hidden="true">
+            <span className="flex-1" style={{ background: "#006341" }} />
+            <span className="flex-1" style={{ background: "#F8FBFE" }} />
+            <span className="flex-1" style={{ background: "#CE1126" }} />
+          </div>
         </div>
 
         {/* Featured promo — large editorial card */}
@@ -108,7 +114,7 @@ export default function Promotions() {
                   <p className="text-[#F5A623] text-xs font-semibold mt-1">⏰ {promos[0].validUntil}</p>
                 </div>
                 <a
-                  href={`https://wa.me/529983921530?text=Hola,%20me%20interesa%20la%20oferta%20de%20${encodeURIComponent(promos[0].title)}%20de%20julio`}
+                  href={`https://wa.me/529983921530?text=Hola,%20me%20interesa%20la%20oferta%20de%20${encodeURIComponent(promos[0].title)}%20de%20septiembre`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary text-sm px-6 py-3"

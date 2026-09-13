@@ -2,6 +2,10 @@
  * Packages — Viajes Casal
  * Design: Editorial luxury cards — elevated, aspirational
  * No coupon feel: premium concierge presentation
+ * Actualizado con las 6 combinaciones de alta prioridad de la Campaña Publicitaria
+ * (destino × ciudad de origen). Precios de referencia investigados en OTAs
+ * (Booking, Bestday, PriceTravel, Expedia) — validar tarifa final con el
+ * mayorista antes de cotizar a un cliente.
  */
 import { useState } from "react";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
@@ -9,65 +13,140 @@ import QuoteModal from "./QuoteModal";
 
 const packages = [
   {
-    id: "cancun",
+    id: "cancun-cdmx",
     destino: "Cancún",
-    tagline: "El Caribe Mexicano",
+    origen: "Desde CDMX",
+    tagline: "Familiar · El Caribe Mexicano",
     img: "/assets/cancun.png",
-    precio: "$14,500",
-    precioOld: "$18,200",
+    precio: "$10,900",
+    precioOld: "$12,900",
     duracion: "5 noches · 6 días",
     personas: "2 personas",
-    hotel: "Riu Palace Cancún ★★★★★",
+    hotel: "Grand Oasis Cancún ★★★★",
     beneficios: [
       "Vuelo redondo desde CDMX",
-      "Hotel todo incluido frente al mar",
-      "Desayunos y cenas gourmet",
-      "Traslados aeropuerto-hotel",
-      "Tour de snorkel en Isla Mujeres",
+      "Hotel todo incluido frente al mar, apto para niños",
+      "Desayunos, comidas y cenas incluidos",
+      "Traslados aeropuerto-hotel redondos GRATIS",
+      "Precio cerrado: sin sorpresas al llegar",
     ],
-    badge: "Más Solicitado",
+    hook: "🎁 Traslados redondos GRATIS",
+    badge: "Favorito Familiar",
     badgeColor: "#009FE3",
     featured: true,
   },
   {
-    id: "puerto-vallarta",
-    destino: "Puerto Vallarta",
-    tagline: "El Pacífico Romántico",
-    img: "/assets/puerto-vallarta.png",
-    precio: "$11,800",
-    precioOld: "$15,500",
+    id: "cancun-mty",
+    destino: "Cancún",
+    origen: "Desde Monterrey",
+    tagline: "Pareja Premium · Solo Adultos",
+    img: "/assets/cancun.png",
+    precio: "$18,200",
+    precioOld: "$21,500",
     duracion: "4 noches · 5 días",
     personas: "2 personas",
-    hotel: "Marriott Puerto Vallarta ★★★★★",
+    hotel: "Excellence Playa Mujeres ★★★★★ (Adults Only)",
     beneficios: [
-      "Vuelo redondo desde CDMX",
-      "Suite superior vista al mar",
-      "Desayunos incluidos",
-      "Traslados aeropuerto-hotel",
-      "Tour gastronómico por el Malecón",
+      "Vuelo redondo directo desde Monterrey",
+      "Hotel boutique adults-only, playa tranquila",
+      "Desayunos y cenas gourmet incluidos",
+      "Traslados privados aeropuerto-hotel",
+      "Ideal para aniversario o desconexión en pareja",
     ],
-    badge: "Escapada Romántica",
+    hook: "🎁 10% dto. por reserva anticipada",
+    badge: "Escapada Adults-Only",
     badgeColor: "#F5A623",
     featured: false,
   },
   {
-    id: "los-cabos",
-    destino: "Los Cabos",
-    tagline: "Donde el Desierto Abraza el Mar",
-    img: "/assets/los-cabos.png",
-    precio: "$13,200",
-    precioOld: "$17,000",
+    id: "rivieramaya-cdmx",
+    destino: "Riviera Maya",
+    origen: "Desde CDMX",
+    tagline: "Familiar / Pareja · Frente a los parques Xcaret",
+    img: "https://images.unsplash.com/photo-1693343972851-af02947e60d4?w=900&q=85",
+    precio: "$9,200",
+    precioOld: "$10,900",
     duracion: "4 noches · 5 días",
     personas: "2 personas",
-    hotel: "One&Only Palmilla ★★★★★",
+    hotel: "Occidental at Xcaret Destination ★★★★",
     beneficios: [
       "Vuelo redondo desde CDMX",
-      "Suite con vista al Mar de Cortés",
-      "Desayunos y cenas incluidas",
-      "Traslados aeropuerto-hotel",
-      "Tour al Arco de Los Cabos",
+      "Hotel todo incluido a pasos de los parques Xcaret",
+      "Traslados aeropuerto-hotel incluidos",
+      "1 día de acceso a Xcaret incluido sin costo extra",
+      "La naturaleza de la Riviera Maya, con la misma tranquilidad de Cancún",
     ],
-    badge: "Aventura Premium",
+    hook: "🎁 1 día de Xcaret incluido + 12% dto. temporada baja",
+    badge: "Acceso a Parques Xcaret",
+    badgeColor: "#006B9A",
+    featured: false,
+  },
+  {
+    id: "pv-gdl",
+    destino: "Puerto Vallarta",
+    origen: "Desde Guadalajara",
+    tagline: "Escapada de fin de semana",
+    img: "/assets/puerto-vallarta.png",
+    precio: "$11,800",
+    precioOld: "$13,900",
+    duracion: "2 noches · 3 días",
+    personas: "2 personas",
+    hotel: "Hard Rock Hotel Vallarta ★★★★★",
+    beneficios: [
+      "Vuelo redondo corto desde Guadalajara",
+      "Hotel todo incluido frente al mar",
+      "Traslados aeropuerto-hotel redondos GRATIS",
+      "Listo para reservar en días, no en semanas",
+      "También disponible en versión 4★ de menor costo — pregunta por opciones",
+    ],
+    hook: "🎁 Traslados redondos GRATIS",
+    badge: "Escapada Relámpago",
+    badgeColor: "#F5A623",
+    featured: false,
+  },
+  {
+    id: "cabo-cdmx",
+    destino: "Los Cabos",
+    origen: "Desde CDMX",
+    tagline: "Ejecutivo / Pareja · Alto Ticket",
+    img: "/assets/los-cabos.png",
+    precio: "$28,500",
+    precioOld: "$33,500",
+    duracion: "4 noches · 5 días",
+    personas: "2 personas",
+    hotel: "Grand Velas Los Cabos o equivalente ★★★★★ (frente al Mar de Cortés)",
+    beneficios: [
+      "Vuelo redondo desde CDMX",
+      "Hotel 5 estrellas frente al Mar de Cortés",
+      "Traslados privados aeropuerto-hotel GRATIS",
+      "Desayunos y cenas incluidas",
+      "Exclusividad y logística resuelta de principio a fin",
+    ],
+    hook: "🎁 Traslados privados GRATIS",
+    badge: "Alto Ticket · Exclusivo",
+    badgeColor: "#1A2B3C",
+    featured: false,
+  },
+  {
+    id: "cabo-mty",
+    destino: "Los Cabos",
+    origen: "Desde Monterrey",
+    tagline: "Ejecutivo Bleisure",
+    img: "/assets/los-cabos.png",
+    precio: "$15,000",
+    precioOld: "$17,600",
+    duracion: "4 noches · 5 días",
+    personas: "2 personas",
+    hotel: "Hyatt Ziva Los Cabos ★★★★★",
+    beneficios: [
+      "Vuelo redondo desde Monterrey",
+      "Hotel todo incluido, ideal para extender un viaje de trabajo",
+      "Traslados incluidos",
+      "Cambio de fecha sin costo por flexibilidad de agenda",
+      "Ya vas por trabajo — quédate unos días más por ti",
+    ],
+    hook: "🎁 Cambio de fecha sin costo",
+    badge: "Bleisure",
     badgeColor: "#006B9A",
     featured: false,
   },
@@ -106,19 +185,19 @@ export default function Packages() {
               <div className="gold-divider" />
             </div>
             <p className="section-subtitle lg:text-right max-w-sm">
-              Cada paquete incluye vuelo, hotel cinco estrellas y experiencias curadas por nuestro equipo.
+              Cada paquete incluye vuelo, hotel y traslados armados según tu ciudad de origen — con un beneficio adicional que no afecta lo que ya cotizamos contigo.
             </p>
           </div>
         </div>
 
         {/* Package Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {packages.map((pkg, i) => (
             <article
               key={pkg.id}
               className={`vc-card fade-in ${visible ? "visible" : ""} ${pkg.featured ? "ring-2 ring-[#009FE3]/30" : ""}`}
-              style={{ transitionDelay: `${i * 120}ms` }}
-              aria-label={`Paquete ${pkg.destino}`}
+              style={{ transitionDelay: `${i * 100}ms` }}
+              aria-label={`Paquete ${pkg.destino} ${pkg.origen}`}
             >
               {/* Image */}
               <div className="pkg-img-wrap relative">
@@ -139,6 +218,10 @@ export default function Packages() {
                   style={{ background: pkg.badgeColor }}
                 >
                   {pkg.badge}
+                </div>
+                {/* Origen */}
+                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-[#006B9A] text-xs font-semibold px-3 py-1 rounded-full">
+                  {pkg.origen}
                 </div>
                 {/* Destination */}
                 <div className="absolute bottom-4 left-4">
@@ -168,7 +251,7 @@ export default function Packages() {
                 </p>
 
                 {/* Benefits */}
-                <ul className="mb-5 space-y-1.5 border-t border-gray-100 pt-4">
+                <ul className="mb-4 space-y-1.5 border-t border-gray-100 pt-4">
                   {pkg.beneficios.map((b) => (
                     <li key={b} className="text-xs text-[#5a7080] flex items-center gap-2">
                       <span className="w-4 h-4 rounded-full bg-[#009FE3]/10 flex items-center justify-center flex-shrink-0">
@@ -178,6 +261,11 @@ export default function Packages() {
                     </li>
                   ))}
                 </ul>
+
+                {/* Hook / gancho */}
+                <div className="mb-5 text-xs font-bold px-3 py-2 rounded-lg" style={{ background: "rgba(245,166,35,0.12)", color: "#a9660b" }}>
+                  {pkg.hook}
+                </div>
 
                 {/* Price */}
                 <div className="mb-5 pb-4 border-b border-gray-100">
@@ -191,9 +279,9 @@ export default function Packages() {
 
                 {/* CTA */}
                 <button
-                  onClick={() => handleQuote(pkg.destino)}
+                  onClick={() => handleQuote(`${pkg.destino} (${pkg.origen})`)}
                   className="btn-primary w-full justify-center text-sm"
-                  aria-label={`Solicitar cotización para ${pkg.destino}`}
+                  aria-label={`Solicitar cotización para ${pkg.destino} ${pkg.origen}`}
                 >
                   Solicitar cotización
                 </button>
@@ -204,7 +292,7 @@ export default function Packages() {
 
         {/* Bottom note */}
         <p className={`text-center text-sm text-[#5a7080] mt-8 fade-in ${visible ? "visible" : ""}`} style={{ transitionDelay: "400ms" }}>
-          Todos los precios son por persona. Cotización sin costo y sin compromiso.
+          Todos los precios son por persona, con base en tarifas de referencia consultadas en Booking, Bestday, PriceTravel y Expedia. Sujetos a disponibilidad — confirmamos la tarifa final contigo antes de reservar. Cotización sin costo y sin compromiso.
         </p>
       </div>
 
