@@ -201,8 +201,12 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     apply();
     const observer = new MutationObserver(apply);
     observer.observe(document.body, { childList: true, subtree: true });
-    document.title = language === "en" ? "Viajes Casal | Premium travel in Mexico" : "Viajes Casal | Viajes premium en México";
-    document.querySelector('meta[name="description"]')?.setAttribute("content", language === "en" ? "Personalized travel packages, hotels, flights and tours in Mexico with expert assistance." : "Paquetes, hoteles, vuelos y tours personalizados en México con asesoría experta.");
+    const routePath = window.location.pathname.replace(/^\/en/, "");
+    const isBlogPost = /^\/blog\/[^/]+/.test(routePath);
+    if (!isBlogPost) {
+      document.title = language === "en" ? "Viajes Casal — All-Inclusive Packages to Cancún & Riviera Maya" : "Viajes Casal — Paquetes Todo Incluido a Cancún y Riviera Maya";
+      document.querySelector('meta[name="description"]')?.setAttribute("content", language === "en" ? "All-inclusive packages to Cancún, Riviera Maya, Puerto Vallarta and Los Cabos: flight, hotel and transfers in one price. Tours and free quotes on WhatsApp." : "Paquetes todo incluido a Cancún, Riviera Maya, Puerto Vallarta y Los Cabos: vuelo, hotel y traslados en un solo precio. Tours y cotización gratis por WhatsApp.");
+    }
     return () => observer.disconnect();
   }, [language]);
   const value = useMemo(() => ({ language, setLanguage }), [language]);
