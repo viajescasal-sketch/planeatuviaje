@@ -232,12 +232,12 @@ export default function Tours() {
           ))}
         </div>
 
-        {/* Tour Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Tour Cards — carrusel horizontal */}
+        <div className="h-scroll flex gap-5 sm:gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth -mx-1 px-1 pt-2 pb-8">
           {filtered.map((tour, i) => (
             <article
               key={tour.id}
-              className={`vc-card fade-in ${visible ? "visible" : ""}`}
+              className={`vc-card fade-in ${visible ? "visible" : ""} flex-shrink-0 w-[280px] sm:w-[310px] snap-start`}
               style={{ transitionDelay: `${i * 80}ms` }}
               aria-label={tour.title}
             >
@@ -280,8 +280,8 @@ export default function Tours() {
                 )}
                 <p className="text-sm text-[#5a7080] mb-4 leading-relaxed">{tour.desc}</p>
 
-                <div className="flex items-center justify-between pt-3 border-t border-gray-100">
-                  <div>
+                <div className="pt-3 border-t border-gray-100">
+                  <div className="mb-3">
                     <span className="text-xs text-[#5a7080] flex items-center gap-1 mb-1">
                       <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                       {tour.duracion}
@@ -294,7 +294,7 @@ export default function Tours() {
                   </div>
                   <button
                     onClick={() => handleQuote(tour.title)}
-                    className="btn-secondary text-xs px-4 py-2"
+                    className="btn-secondary w-full justify-center text-xs px-4 py-2"
                     aria-label={`Cotizar ${tour.title}`}
                   >
                     {tour.cta}

@@ -1,6 +1,7 @@
 /**
  * CountdownTimer — Viajes Casal
- * Contador regresivo hasta el último día del mes actual
+ * Contador regresivo de un mes completo, de atrás hacia adelante
+ * (arranca en ~1 mes a partir de que se carga la página y baja a cero).
  */
 import { useState, useEffect } from "react";
 
@@ -13,13 +14,13 @@ export default function CountdownTimer() {
   });
 
   useEffect(() => {
-    const calculateTimeLeft = () => {
-      // Obtener el último día del mes actual
-      const now = new Date();
-      const lastDay = new Date(now.getFullYear(), now.getMonth() + 1, 0);
-      lastDay.setHours(23, 59, 59, 999);
+    // Meta fija: un mes exacto desde el momento en que carga la página.
+    const target = new Date();
+    target.setMonth(target.getMonth() + 1);
 
-      const difference = lastDay.getTime() - now.getTime();
+    const calculateTimeLeft = () => {
+      const now = new Date();
+      const difference = target.getTime() - now.getTime();
 
       if (difference > 0) {
         setTimeLeft({

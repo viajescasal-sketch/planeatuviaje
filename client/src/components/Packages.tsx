@@ -184,18 +184,69 @@ export default function Packages() {
               </h2>
               <div className="gold-divider" />
             </div>
-            <p className="section-subtitle lg:text-right max-w-sm">
-              Cada paquete incluye vuelo, hotel y traslados armados según tu ciudad de origen — con un beneficio adicional que no afecta lo que ya cotizamos contigo.
-            </p>
+            <div
+              className="flex items-start gap-4 sm:gap-6"
+              role="img"
+              aria-label="Cada paquete incluye vuelo, hotel y traslados armados según tu ciudad de origen, con un beneficio adicional que no afecta lo que ya cotizamos contigo"
+            >
+              {[
+                {
+                  label: "Vuelo",
+                  path: <path d="M22 2 11 13M22 2 15 22l-4-9-9-4Z" />,
+                },
+                {
+                  label: "Hotel",
+                  path: (
+                    <>
+                      <rect x="2" y="3" width="20" height="14" rx="2" />
+                      <line x1="8" y1="21" x2="16" y2="21" />
+                      <line x1="12" y1="17" x2="12" y2="21" />
+                    </>
+                  ),
+                },
+                {
+                  label: "Traslados",
+                  path: (
+                    <>
+                      <rect x="1" y="3" width="15" height="13" />
+                      <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+                      <circle cx="5.5" cy="18.5" r="2.5" />
+                      <circle cx="18.5" cy="18.5" r="2.5" />
+                    </>
+                  ),
+                },
+                {
+                  label: "Beneficio",
+                  path: (
+                    <>
+                      <polyline points="20 12 20 22 4 22 4 12" />
+                      <rect x="2" y="7" width="20" height="5" />
+                      <line x1="12" y1="22" x2="12" y2="7" />
+                      <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z" />
+                      <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" />
+                    </>
+                  ),
+                },
+              ].map((item) => (
+                <div key={item.label} className="flex flex-col items-center gap-1.5" aria-hidden="true">
+                  <span className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#009FE3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      {item.path}
+                    </svg>
+                  </span>
+                  <span className="text-[11px] font-semibold text-[#5a7080] whitespace-nowrap">{item.label}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Package Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Package Cards — carrusel horizontal */}
+        <div className="h-scroll flex gap-6 sm:gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth -mx-1 px-1 pt-2 pb-8">
           {packages.map((pkg, i) => (
             <article
               key={pkg.id}
-              className={`vc-card fade-in ${visible ? "visible" : ""} ${pkg.featured ? "ring-2 ring-[#009FE3]/30" : ""}`}
+              className={`vc-card fade-in ${visible ? "visible" : ""} ${pkg.featured ? "ring-2 ring-[#009FE3]/30" : ""} flex-shrink-0 w-[300px] sm:w-[340px] snap-start`}
               style={{ transitionDelay: `${i * 100}ms` }}
               aria-label={`Paquete ${pkg.destino} ${pkg.origen}`}
             >
