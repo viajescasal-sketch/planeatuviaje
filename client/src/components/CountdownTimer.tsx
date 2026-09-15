@@ -1,7 +1,7 @@
 /**
  * CountdownTimer — Viajes Casal
- * Contador regresivo de un mes completo, de atrás hacia adelante
- * (arranca en ~1 mes a partir de que se carga la página y baja a cero).
+ * Contador regresivo con fecha fija de cierre de promoción
+ * (misma cuenta para todos los visitantes; termina el 14 de noviembre de 2026).
  */
 import { useState, useEffect } from "react";
 
@@ -14,9 +14,8 @@ export default function CountdownTimer() {
   });
 
   useEffect(() => {
-    // Meta fija: un mes exacto desde el momento en que carga la página.
-    const target = new Date();
-    target.setMonth(target.getMonth() + 1);
+      // Meta fija: la promoción de septiembre termina el 14 de noviembre de 2026.
+          const target = new Date(2026, 10, 14, 23, 59, 59);
 
     const calculateTimeLeft = () => {
       const now = new Date();
