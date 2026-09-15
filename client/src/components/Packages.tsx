@@ -23,13 +23,13 @@ const packages = [
     duracion: "5 noches · 6 días",
     personas: "2 personas",
     hotel: "Grand Oasis Cancún ★★★★",
+    ventana: "📅 Reserva antes del 9 de noviembre · Viaja: octubre-noviembre 2026",
     beneficios: [
       "Vuelo redondo desde CDMX",
       "Hotel todo incluido frente al mar, apto para niños",
       "Desayunos, comidas y cenas incluidos",
       "Traslados aeropuerto-hotel redondos GRATIS",
       "Precio cerrado: sin sorpresas al llegar",
-      "📅 Reserva hasta el 9 de noviembre · Viaja: octubre-noviembre 2026",
     ],
     hook: "🎁 Traslados redondos GRATIS",
     badge: "Favorito Familiar",
@@ -47,13 +47,13 @@ const packages = [
     duracion: "4 noches · 5 días",
     personas: "2 personas",
     hotel: "Excellence Playa Mujeres ★★★★★ (Adults Only)",
+    ventana: "📅 Reserva antes del 9 de noviembre · Viaja: octubre-noviembre 2026",
     beneficios: [
       "Vuelo redondo directo desde Monterrey",
       "Hotel boutique adults-only, playa tranquila",
       "Desayunos y cenas gourmet incluidos",
       "Traslados privados aeropuerto-hotel",
       "Ideal para aniversario o desconexión en pareja",
-      "📅 Reserva hasta el 9 de noviembre · Viaja: octubre-noviembre 2026",
     ],
     hook: "🎁 10% dto. por reserva anticipada",
     badge: "Escapada Adults-Only",
@@ -71,13 +71,13 @@ const packages = [
     duracion: "4 noches · 5 días",
     personas: "2 personas",
     hotel: "Occidental at Xcaret Destination ★★★★",
+    ventana: "📅 Reserva antes del 9 de noviembre · Viaja: octubre-noviembre 2026",
     beneficios: [
       "Vuelo redondo desde CDMX",
       "Hotel todo incluido a pasos de los parques Xcaret",
       "Traslados aeropuerto-hotel incluidos",
       "1 día de acceso a Xcaret incluido sin costo extra",
       "La naturaleza de la Riviera Maya, con la misma tranquilidad de Cancún",
-      "📅 Reserva hasta el 9 de noviembre · Viaja: octubre-noviembre 2026",
     ],
     hook: "🎁 1 día de Xcaret incluido + 12% dto. temporada baja",
     badge: "Acceso a Parques Xcaret",
@@ -95,13 +95,13 @@ const packages = [
     duracion: "2 noches · 3 días",
     personas: "2 personas",
     hotel: "Hard Rock Hotel Vallarta ★★★★★",
+    ventana: "📅 Reserva antes del 9 de noviembre · Viaja: octubre-noviembre 2026",
     beneficios: [
       "Vuelo redondo corto desde Guadalajara",
       "Hotel todo incluido frente al mar",
       "Traslados aeropuerto-hotel redondos GRATIS",
       "Listo para reservar en días, no en semanas",
       "También disponible en versión 4★ de menor costo — pregunta por opciones",
-      "📅 Reserva hasta el 9 de noviembre · Viaja: octubre-noviembre 2026",
     ],
     hook: "🎁 Traslados redondos GRATIS",
     badge: "Escapada Relámpago",
@@ -119,13 +119,13 @@ const packages = [
     duracion: "4 noches · 5 días",
     personas: "2 personas",
     hotel: "Grand Velas Los Cabos o equivalente ★★★★★ (frente al Mar de Cortés)",
+    ventana: "📅 Reserva antes del 9 de noviembre · Viaja: octubre-noviembre 2026",
     beneficios: [
       "Vuelo redondo desde CDMX",
       "Hotel 5 estrellas frente al Mar de Cortés",
       "Traslados privados aeropuerto-hotel GRATIS",
       "Desayunos y cenas incluidas",
       "Exclusividad y logística resuelta de principio a fin",
-      "📅 Reserva hasta el 9 de noviembre · Viaja: octubre-noviembre 2026",
     ],
     hook: "🎁 Traslados privados GRATIS",
     badge: "Alto Ticket · Exclusivo",
@@ -143,13 +143,13 @@ const packages = [
     duracion: "4 noches · 5 días",
     personas: "2 personas",
     hotel: "Hyatt Ziva Los Cabos ★★★★★",
+    ventana: "📅 Reserva antes del 9 de noviembre · Viaja: octubre-noviembre 2026",
     beneficios: [
       "Vuelo redondo desde Monterrey",
       "Hotel todo incluido, ideal para extender un viaje de trabajo",
       "Traslados incluidos",
       "Cambio de fecha sin costo por flexibilidad de agenda",
       "Ya vas por trabajo — quédate unos días más por ti",
-      "📅 Reserva hasta el 9 de noviembre · Viaja: octubre-noviembre 2026",
     ],
     hook: "🎁 Cambio de fecha sin costo",
     badge: "Bleisure",
@@ -330,9 +330,14 @@ export default function Packages() {
                   </span>
                 </div>
 
-                {/* Hotel */}
+                {/* Ventana de reserva y viaje */}
+                <p className="text-xs font-semibold text-[#006B9A] mb-2 flex items-center gap-1.5">
+                  {pkg.ventana}
+                </p>
+              
+              {/* Hotel */}
                 <p className="text-xs font-semibold text-[#1A2B3C] mb-3 flex items-center gap-1.5">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#009FE3" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#009FE3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M2 17h20"/><path d="M4 17c0-4.5 2-8 8-8s8 3.5 8 8"/><circle cx="12" cy="6" r="1.5"/><path d="M9 21h6"/></svg>
                   {pkg.hotel}
                 </p>
 
