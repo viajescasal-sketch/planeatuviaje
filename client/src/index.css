@@ -399,6 +399,21 @@
     .tour-quote-modal-content { padding: 2rem; }
   }
 
+  .tour-detail-modal-content {
+    max-width: 560px;
+    padding: 1.25rem;
+    position: relative;
+  }
+
+  @media (min-width: 640px) {
+    .tour-detail-modal-content { padding: 2rem; }
+  }
+
+  .tour-detail-img {
+    border-radius: 20px 20px 0 0;
+    overflow: hidden;
+  }
+
   @media (min-width: 640px) {
     .quote-modal-content { padding: 2rem; }
   }
