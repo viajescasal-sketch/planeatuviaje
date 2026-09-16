@@ -10,6 +10,7 @@
 import { useRef, useState } from "react";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 import TourQuoteModal from "./TourQuoteModal";
+import TourDetailModal, { type TourSummary } from "./TourDetailModal";
 
 const tours = [
   // ---- Tendencia de temporada (primero) ----
@@ -25,6 +26,20 @@ const tours = [
     categoria: "Aventura",
     cta: "Cotizar",
     tendencia: "🐋 Temporada Ballenas",
+    detalle: {
+      horario: "Salidas a las 9:00 am, 12:00 pm y 3:00 pm. Duración aprox. 2 horas de navegación (más traslados). Temporada: 15 de diciembre a 15 de abril, con mejor avistamiento en febrero y marzo.",
+      incluye: [
+        "Guía bilingüe especializado en ballenas",
+        "Lancha rápida tipo inflable con hidrófono para detectar cantos de ballenas",
+        "Agua embotellada",
+        "Chaleco salvavidas y equipo de seguridad",
+      ],
+      queVeras: [
+        "Ballenas jorobadas y grises en época de apareamiento, parto y crianza",
+        "Vistas de El Arco y Land's End desde el mar",
+        "Alta probabilidad de avistamiento en temporada alta",
+      ],
+    },
   },
   {
     // Nuevo — no existía en el catálogo.
@@ -39,6 +54,22 @@ const tours = [
     categoria: "Fiesta Mexicana",
     cta: "Resérvalo antes de que se llene tu fecha",
     tendencia: "🇲🇽 Mes Patrio",
+    detalle: {
+      horario: "Lunes a sábado. Check-in 7:00 pm, último abordaje 8:30 pm, término aprox. 11:00 pm. Duración aprox. 3 horas.",
+      incluye: [
+        "Paseo en trajinera decorada por los canales del parque",
+        "Cena mexicana (antojitos, platillos de cerdo, res, mariscos y pollo, más postre)",
+        "Barra libre de cerveza, tequila, ron, vodka, refrescos y aguas frescas",
+        "Música en vivo: mariachi, norteño, ranchero y marimba",
+        "Anfitrión que guía la fiesta durante todo el recorrido",
+        "Estacionamiento gratuito",
+      ],
+      queVeras: [
+        "Canales iluminados y trajineras con nombres de estados de México",
+        "Espectáculo de baile y canto en vivo con distintos conjuntos musicales",
+        "Ambiente de fiesta mexicana para brindar y gritar '¡Viva México!'",
+      ],
+    },
   },
   // ---- Reemplazos: mismo tour, nombre/descripción/precio actualizados a la campaña ----
   {
@@ -53,6 +84,22 @@ const tours = [
     desc: "Chaleco, guía y snorkel incluidos. Tú solo disfruta.",
     categoria: "Aventura",
     cta: "Pregúntanos por WhatsApp",
+    detalle: {
+      horario: "Salida aprox. 10:00 am (check-in 9:30 am). Regreso aprox. 4:45–5:00 pm. Duración total aprox. 6-7 horas incluyendo traslados.",
+      incluye: [
+        "Transporte redondo hotel–muelle–hotel con aire acondicionado",
+        "Barra libre a bordo (agua, refresco, cocteles y cerveza de barril)",
+        "Comida en restaurante frente al mar en Isla Mujeres",
+        "Equipo de snorkel",
+        "Música y animación a bordo del catamarán",
+        "Tiempo libre para explorar Isla Mujeres",
+      ],
+      queVeras: [
+        "Aguas turquesas del Caribe mexicano en ruta a Isla Mujeres",
+        "Snorkel en arrecife (actividad no recomendada para embarazadas, menores de 10 o mayores de 65 años)",
+        "Calles, playas y tiendas de Isla Mujeres en tiempo libre",
+      ],
+    },
   },
   {
     // Reemplaza "Chichén Itzá + Cenote"
@@ -66,6 +113,22 @@ const tours = [
     desc: "Te contamos qué nadie te dice antes de reservar.",
     categoria: "Cultura",
     cta: "Escríbenos tus fechas",
+    detalle: {
+      horario: "Salida muy temprano por la mañana. Duración total aprox. 10-12 horas (día completo, ida y vuelta).",
+      incluye: [
+        "Transporte redondo",
+        "Entrada a la zona arqueológica de Chichén Itzá",
+        "Guía certificado durante el recorrido",
+        "Visita a un cenote para nadar",
+        "Comida buffet con platillos yucatecos",
+        "Tiempo libre para tomar fotos",
+      ],
+      queVeras: [
+        "Pirámide de Kukulkán, el Gran Juego de Pelota, el Templo de los Guerreros, el Observatorio y la Plaza de las Mil Columnas",
+        "Un chapuzón refrescante en cenote natural",
+        "Un pueblo colonial cercano (según el itinerario, usualmente Valladolid)",
+      ],
+    },
   },
   {
     // Reemplaza la mitad "Xcaret" del combo "Xcaret + Xel-Há"
@@ -79,6 +142,23 @@ const tours = [
     desc: "Buffet, snorkel y transporte ya incluidos. Solo trae ganas de disfrutar.",
     categoria: "Naturaleza",
     cta: "Arma tu combo por WhatsApp",
+    detalle: {
+      horario: "Se recomienda dedicar el día completo, aprox. 8-10 horas dentro del parque.",
+      incluye: [
+        "Acceso completo al parque Xcaret",
+        "Comida buffet ilimitada en restaurantes seleccionados",
+        "Vestidores privados con casillero",
+        "Equipo de snorkel (con depósito reembolsable)",
+        "Show nocturno 'México Espectacular'",
+        "Acceso a pajarera y mariposario",
+      ],
+      queVeras: [
+        "Ríos subterráneos para nadar o flotar",
+        "Playas y caleta natural, además del acuario de arrecife",
+        "Jardines, criaderos de especies nativas y áreas culturales",
+        "Espectáculo nocturno de danza y música mexicana",
+      ],
+    },
   },
   {
     // Reemplaza la mitad "Xel-Há" del combo "Xcaret + Xel-Há"
@@ -92,6 +172,21 @@ const tours = [
     desc: "Snorkel ilimitado, tobogán y tirolesas incluidos.",
     categoria: "Naturaleza",
     cta: "Pregunta fechas disponibles",
+    detalle: {
+      horario: "Todos los días, 8:30 am a 6:00 pm. Experiencia de día completo.",
+      incluye: [
+        "Desayuno continental y buffet de snacks/comida durante el día",
+        "Barra libre nacional y bebidas sin alcohol ilimitadas",
+        "Snorkel ilimitado con aletas y visor",
+        "Flotadores para el río, chalecos salvavidas y bicicletas",
+      ],
+      queVeras: [
+        "Faro escénico con vistas 360° desde 40 metros de altura",
+        "Mundo de Aventura: tirolesas, juegos de cuerdas y clavados",
+        "Cenotes, caletas y el vivero con más de 270 especies nativas",
+        "Área infantil con actividades para niños",
+      ],
+    },
   },
   // ---- Nuevos ----
   {
@@ -105,6 +200,20 @@ const tours = [
     desc: "Te armamos el combo perfecto según tu grupo: tirolesas, vehículo anfibio y cuevas.",
     categoria: "Aventura",
     cta: "Escríbenos y cotizamos",
+    detalle: {
+      horario: "Diurno: lunes a sábado, 9:00 am a 5:00 pm. Versión nocturna 'Xplor Fuego': 5:30 pm a 11:00 pm.",
+      incluye: [
+        "Acceso a las 4 actividades principales del parque",
+        "Equipo de seguridad para cada actividad",
+        "Comida (según el paquete contratado)",
+      ],
+      queVeras: [
+        "Circuitos de tirolesas de casi 4 km sobrevolando la selva a 45 m de altura",
+        "Expediciones en vehículos anfibios por cavernas y puentes colgantes",
+        "Recorrido en balsa por ríos subterráneos en cuevas milenarias",
+        "Exploración de cavernas con aguas cristalinas",
+      ],
+    },
   },
   {
     id: "marietas",
@@ -117,6 +226,21 @@ const tours = [
     desc: "Cupo limitado por día. Snorkel incluido en la playa escondida.",
     categoria: "Naturaleza",
     cta: "Pregunta disponibilidad",
+    detalle: {
+      horario: "Duración aprox. 5 horas, incluyendo navegación y actividades.",
+      incluye: [
+        "Traslado en lancha rápida por la bahía",
+        "Nado guiado a través de un túnel de roca para llegar a Playa Escondida",
+        "Equipo de snorkel y de seguridad",
+        "Snack ligero a bordo",
+        "Cuota de conservación del parque",
+      ],
+      queVeras: [
+        "Playa Escondida, con acceso limitado a 15-20 minutos por regulación ambiental (sujeto a condiciones del mar)",
+        "Más de 100 especies de aves y peces, incluido el piquero de patas azules",
+        "Posibilidad de ver tortugas marinas, mantarrayas y, en temporada (dic-marzo), ballenas jorobadas",
+      ],
+    },
   },
   {
     // Reemplaza "Sunset Cruise en Catamarán"
@@ -130,6 +254,20 @@ const tours = [
     desc: "Ideal para aniversarios y lunas de miel. Cupo limitado, reserva con anticipación.",
     categoria: "Romance",
     cta: "Aparta tu fecha",
+    detalle: {
+      horario: "Salida aprox. 5:30 pm (check-in 45 min antes). Duración total aprox. 5 horas.",
+      incluye: [
+        "Crucero en catamarán al atardecer por la Bahía de Banderas",
+        "Cena gourmet con vino",
+        "Espectáculo teatral ALMA (acróbatas, bailarines y música en vivo)",
+        "Crucero de regreso con música y ambiente festivo",
+      ],
+      queVeras: [
+        "Atardecer sobre la Bahía de Banderas (posible avistamiento de ballenas migrando entre dic-marzo)",
+        "Cena frente al mar en una cala escondida",
+        "Espectáculo inmersivo en anfiteatro iluminado con velas dentro de la selva",
+      ],
+    },
   },
   {
     // Ya existía — se respeta título, descripción e imagen originales. Solo precio y orden.
@@ -142,6 +280,19 @@ const tours = [
     desc: "Descubre los mejores sabores de la cocina jalisciense junto al mar.",
     categoria: "Gastronomía",
     cta: "Cotizar",
+    detalle: {
+      horario: "Salidas diarias a las 10:30 am y 11:00 am. Duración aprox. 3-3.5 horas.",
+      incluye: [
+        "Más de 10 degustaciones en distintos locales y restaurantes del centro",
+        "Botella de agua",
+        "Recorrido guiado con contexto cultural e histórico",
+      ],
+      queVeras: [
+        "Iglesia de Nuestra Señora de Guadalupe, el Muelle de Los Muertos, el Río Cuale y el Malecón",
+        "Sabores típicos como tacos, birria, ceviche, mole, mariscos, aguas frescas y postres tradicionales",
+        "Encuentro con chefs, vendedores y artesanos locales",
+      ],
+    },
   },
   {
     id: "arco",
@@ -154,6 +305,19 @@ const tours = [
     desc: "Salidas todos los días, tour corto en lancha.",
     categoria: "Naturaleza",
     cta: "Reserva tu horario",
+    detalle: {
+      horario: "Salidas todos los días. Recorrido básico 45 min-1 hora; con parada en playa aprox. 1.5-2 horas.",
+      incluye: [
+        "Transporte en lancha o catamarán",
+        "Vista de El Arco de Cabo San Lucas",
+        "Parada en Playa del Amor (según el paquete contratado)",
+      ],
+      queVeras: [
+        "El Arco, el punto donde se encuentran el Mar de Cortés y el Océano Pacífico",
+        "Colonia de lobos marinos y la formación 'Dedo de Neptuno'",
+        "Playa del Amor, con arena blanca y aguas cristalinas",
+      ],
+    },
   },
   {
     id: "atv",
@@ -166,6 +330,20 @@ const tours = [
     desc: "Equipo y guía incluidos. Recorrido por dunas al atardecer.",
     categoria: "Aventura",
     cta: "Escríbenos por WhatsApp",
+    detalle: {
+      horario: "Salidas a las 9:00, 10:00, 12:00, 13:00, 15:00 y 16:00 hrs. Duración aprox. 2 horas.",
+      incluye: [
+        "Transporte redondo",
+        "Cuatrimoto 4x4 automática",
+        "Casco y equipo de seguridad",
+        "Guía durante todo el recorrido",
+      ],
+      queVeras: [
+        "Senderos del desierto de Los Cabos",
+        "Dunas para subir y bajar",
+        "Tramos de playa y acantilados al atardecer",
+      ],
+    },
   },
 ];
 
@@ -176,6 +354,7 @@ export default function Tours() {
   const [activeFilter, setActiveFilter] = useState("Todos");
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedTour, setSelectedTour] = useState("");
+  const [detailTour, setDetailTour] = useState<TourSummary | null>(null);
   const scrollerRef = useRef<HTMLDivElement>(null);
 
   const filtered = activeFilter === "Todos"
@@ -185,6 +364,15 @@ export default function Tours() {
   const handleQuote = (tour: string) => {
     setSelectedTour(tour);
     setModalOpen(true);
+  };
+
+  const handleDetail = (tour: TourSummary) => {
+    setDetailTour(tour);
+  };
+
+  const handleCotizarFromDetail = (tour: string) => {
+    setDetailTour(null);
+    handleQuote(tour);
   };
 
   const scrollByCard = (dir: 1 | -1) => {
@@ -316,13 +504,23 @@ export default function Tours() {
                       <span className="text-xs text-gray-400">MXN / Por persona</span>
                     </div>
                   </div>
-                  <button
-                    onClick={() => handleQuote(tour.title)}
-                    className="btn-secondary w-full justify-center text-xs px-4 py-2"
-                    aria-label={`Cotizar ${tour.title}`}
-                  >
-                    {tour.cta}
-                  </button>
+                  <div className="flex flex-col gap-2">
+                    <button
+                      onClick={() => handleDetail(tour)}
+                      className="w-full inline-flex items-center justify-center gap-1.5 rounded-full border border-gray-200 text-[#5a7080] text-xs font-semibold px-4 py-2 transition-colors duration-200 hover:border-[#009FE3] hover:text-[#009FE3]"
+                      aria-label={`Conocer más sobre ${tour.title}`}
+                    >
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><line x1="12" y1="16" x2="12" y2="12" /><line x1="12" y1="8" x2="12.01" y2="8" /></svg>
+                      Conocer más
+                    </button>
+                    <button
+                      onClick={() => handleQuote(tour.title)}
+                      className="btn-secondary w-full justify-center text-xs px-4 py-2"
+                      aria-label={`Cotizar ${tour.title}`}
+                    >
+                      {tour.cta}
+                    </button>
+                  </div>
                 </div>
               </div>
             </article>
@@ -340,6 +538,12 @@ export default function Tours() {
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
         defaultTour={selectedTour}
+      />
+      <TourDetailModal
+        isOpen={detailTour !== null}
+        onClose={() => setDetailTour(null)}
+        tour={detailTour}
+        onCotizar={handleCotizarFromDetail}
       />
     </section>
   );
