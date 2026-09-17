@@ -77,7 +77,7 @@ const tours = [
     id: "catamaran",
     title: "Catamarán Isla Mujeres",
     destino: "Cancún",
-    img: "https://images.unsplash.com/photo-1585094744214-ebb557f6e886?w=600&q=85",
+    img: "/assets/catamaran-isla-mujeres.jpg",
     duracion: "6 horas",
     precio: "$2,200",
     headline: "No sabes nadar bien y aun así quieres ver el arrecife.",
