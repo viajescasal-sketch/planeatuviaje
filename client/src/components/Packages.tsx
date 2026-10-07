@@ -11,7 +11,186 @@ import { useRef, useState } from "react";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 import QuoteModal from "./QuoteModal";
 
-const packages = [
+const packages: Array<{
+  id: string;
+  destino: string;
+  origen: string;
+  tagline: string;
+  img: string;
+  precio: string;
+  precioOld?: string;
+  precioNota?: string;
+  nota?: string;
+  duracion: string;
+  personas: string;
+  hotel: string;
+  ventana: string;
+  beneficios: string[];
+  hook: string;
+  badge: string;
+  badgeColor: string;
+  featured: boolean;
+}> = [
+  {
+    id: "colombia-gdl",
+    destino: "Colombia",
+    origen: "Desde Guadalajara",
+    tagline: "Bogotá · Un viaje con aroma a café",
+    img: "/assets/colombia-bogota.webp",
+    precio: "$14,999",
+    duracion: "4 noches · 5 días",
+    personas: "Hab. doble",
+    hotel: "Hotel Ópera, Bogotá",
+    ventana: "📅 Viaja: del 27 al 31 de octubre de 2026",
+    beneficios: [
+      "Vuelo redondo desde Guadalajara",
+      "Hospedaje en el Hotel Ópera",
+      "Desayuno buffet incluido",
+      "Traslado redondo",
+      "Taller y degustación de café colombiano en La Candelaria",
+    ],
+    hook: "🎁 Taller y degustación de café en La Candelaria",
+    badge: "Internacional",
+    badgeColor: "#006B9A",
+    featured: false,
+  },
+  {
+    id: "colombia-mty",
+    destino: "Colombia",
+    origen: "Desde Monterrey",
+    tagline: "Bogotá · Un viaje con aroma a café",
+    img: "/assets/colombia-bogota.webp",
+    precio: "$22,799",
+    duracion: "4 noches · 5 días",
+    personas: "Hab. doble",
+    hotel: "Hotel Ópera, Bogotá",
+    ventana: "📅 Viaja: del 27 al 31 de octubre de 2026",
+    beneficios: [
+      "Vuelo redondo desde Monterrey",
+      "Hospedaje en el Hotel Ópera",
+      "Desayuno buffet incluido",
+      "Traslado redondo",
+      "Taller y degustación de café colombiano en La Candelaria",
+    ],
+    hook: "🎁 Taller y degustación de café en La Candelaria",
+    badge: "Internacional",
+    badgeColor: "#006B9A",
+    featured: false,
+  },
+  {
+    id: "colombia-cdmx",
+    destino: "Colombia",
+    origen: "Desde CDMX",
+    tagline: "Bogotá · Un viaje con aroma a café",
+    img: "/assets/colombia-bogota.webp",
+    precio: "$15,199",
+    duracion: "4 noches · 5 días",
+    personas: "Hab. doble",
+    hotel: "Hotel Ópera, Bogotá",
+    ventana: "📅 Viaja: del 27 al 31 de octubre de 2026",
+    beneficios: [
+      "Vuelo redondo desde CDMX",
+      "Hospedaje en el Hotel Ópera",
+      "Desayuno buffet incluido",
+      "Traslado redondo",
+      "Taller y degustación de café colombiano en La Candelaria",
+    ],
+    hook: "🎁 Taller y degustación de café en La Candelaria",
+    badge: "Internacional",
+    badgeColor: "#006B9A",
+    featured: false,
+  },
+  {
+    id: "cdmx-dia-de-muertos",
+    destino: "Ciudad de México",
+    origen: "Vuelo no incluido",
+    tagline: "Desfile del Día de Muertos",
+    img: "/assets/cdmx-dia-de-muertos.webp",
+    precio: "$10,999",
+    nota: "El precio no incluye vuelos.",
+    duracion: "3 noches · 4 días",
+    personas: "Hab. doble",
+    hotel: "Hotel Casa Blanca",
+    ventana: "📅 Viaja: del 30 de octubre al 2 de noviembre de 2026",
+    beneficios: [
+      "Hospedaje en el Hotel Casa Blanca",
+      "Desayuno incluido",
+      "Entrada al Desfile del Día de Muertos en Paseo de la Reforma",
+    ],
+    hook: "🎁 Entrada al Desfile del Día de Muertos incluida",
+    badge: "Día de Muertos",
+    badgeColor: "#E2794F",
+    featured: false,
+  },
+  {
+    id: "san-cristobal",
+    destino: "San Cristóbal de las Casas",
+    origen: "Vuelo no incluido",
+    tagline: "Pueblo Mágico · Chiapas",
+    img: "/assets/san-cristobal.webp",
+    precio: "$4,299",
+    nota: "El precio no incluye vuelos ni traslados.",
+    duracion: "3 noches · 4 días",
+    personas: "Hab. doble",
+    hotel: "Hotel Casa Lily",
+    ventana: "📅 Viaja: del 4 al 7 de noviembre de 2026",
+    beneficios: [
+      "Hospedaje en el Hotel Casa Lily",
+      "Desayuno americano",
+      "Entrada a Lagos de Montebello",
+      "Entrada a Cascada El Chiflón",
+    ],
+    hook: "🎁 Entradas a Lagos de Montebello y El Chiflón incluidas",
+    badge: "Pueblo Mágico",
+    badgeColor: "#F5A623",
+    featured: false,
+  },
+  {
+    id: "guanajuato",
+    destino: "Guanajuato",
+    origen: "Vuelo no incluido",
+    tagline: "Historia, color y magia en cada rincón",
+    img: "/assets/guanajuato.webp",
+    precio: "$5,899",
+    nota: "El precio no incluye vuelos.",
+    duracion: "4 noches · 5 días",
+    personas: "Hab. doble",
+    hotel: "Hotel Abadía Tradicional",
+    ventana: "📅 Viaja: del 10 al 14 de noviembre de 2026",
+    beneficios: [
+      "4 noches de hospedaje",
+      "4 desayunos",
+      "Recorridos guiados",
+      "Transportación durante los recorridos",
+      "Impuestos incluidos",
+    ],
+    hook: "🎁 Recorridos guiados con transportación incluidos",
+    badge: "Ciudad Colonial",
+    badgeColor: "#009FE3",
+    featured: false,
+  },
+  {
+    id: "oaxaca-2x1",
+    destino: "Oaxaca",
+    origen: "Vuelo no incluido",
+    tagline: "El viaje duplica la diversión",
+    img: "/assets/oaxaca.webp",
+    precio: "$7,399",
+    precioNota: "/ Por 2 personas",
+    nota: "El precio no incluye vuelos ni traslados.",
+    duracion: "3 noches · 4 días",
+    personas: "2 personas",
+    hotel: "Casa Bonita Hotel & Luxury Residence",
+    ventana: "📅 Viaja: del 23 al 26 de noviembre de 2026",
+    beneficios: [
+      "Hospedaje en Casa Bonita Hotel & Luxury Residence",
+      "Desayuno continental",
+    ],
+    hook: "🎁 2x1: el precio cubre a 2 personas",
+    badge: "2x1",
+    badgeColor: "#E2794F",
+    featured: false,
+  },
   {
     id: "cancun-cdmx",
     destino: "Cancún",
@@ -363,9 +542,14 @@ export default function Packages() {
                   <span className="mb-1 block text-xs font-semibold text-[#5a7080]">Desde</span>
                   <div className="flex flex-wrap items-baseline gap-2">
                     <span className="text-2xl font-extrabold text-[#1A2B3C]">{pkg.precio} <small className="text-xs font-bold">MXN</small></span>
-                    <span className="text-sm text-gray-400 line-through">{pkg.precioOld}</span>
-                    <span className="text-xs text-gray-400">/ Por persona</span>
+                    {pkg.precioOld && (
+                      <span className="text-sm text-gray-400 line-through">{pkg.precioOld}</span>
+                    )}
+                    <span className="text-xs text-gray-400">{pkg.precioNota ?? "/ Por persona"}</span>
                   </div>
+                  {pkg.nota && (
+                    <p className="mt-1 text-[11px] text-gray-400">{pkg.nota}</p>
+                  )}
                 </div>
 
                 {/* CTA */}
