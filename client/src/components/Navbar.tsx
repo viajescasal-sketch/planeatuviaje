@@ -56,7 +56,7 @@ const handleNavClick = (href: string, external?: boolean) => {
         <a
           href="#inicio"
           onClick={(e) => { e.preventDefault(); handleNavClick("#inicio"); }}
-          className="flex items-center gap-2 text-decoration-none"
+          className="flex shrink-0 items-center gap-2 text-decoration-none"
           aria-label="Viajes Casal - Inicio"
         >
           <img
@@ -93,7 +93,7 @@ const handleNavClick = (href: string, external?: boolean) => {
                 target={link.external ? "_blank" : undefined}
                   rel={link.external ? "noopener noreferrer" : undefined}
                 onClick={(e) => { e.preventDefault(); handleNavClick(link.href, link.external); }}
-                className={`text-sm font-medium transition-colors duration-200 hover:text-[#009FE3] no-underline ${
+                className={`whitespace-nowrap text-sm font-medium transition-colors duration-200 hover:text-[#009FE3] no-underline ${
                   scrolled ? "text-[#1A2B3C]" : "text-white/90"
                 }`}
               >
@@ -103,25 +103,10 @@ const handleNavClick = (href: string, external?: boolean) => {
           ))}
         </ul>
 
-
-
-        <div className={`hidden lg:flex items-center rounded-full border p-0.5 text-xs font-bold ${scrolled ? "border-slate-200 bg-slate-50" : "border-white/40 bg-white/10"}`} aria-label="Language selector">
+        <div className={`hidden lg:flex ml-8 shrink-0 items-center rounded-full border p-0.5 text-xs font-bold ${scrolled ? "border-slate-200 bg-slate-50" : "border-white/40 bg-white/10"}`} aria-label="Language selector">
           <button onClick={() => setLanguage("es")} className={`rounded-full px-2 py-1 ${language === "es" ? "bg-[#009FE3] text-white" : scrolled ? "text-slate-600" : "text-white"}`}>ES</button>
           <button onClick={() => setLanguage("en")} className={`rounded-full px-2 py-1 ${language === "en" ? "bg-[#009FE3] text-white" : scrolled ? "text-slate-600" : "text-white"}`}>EN</button>
         </div>
-
-        {/* CTA Button */}
-        <a
-          href="https://wa.me/529983921530?text=Hola,%20me%20interesa%20cotizar%20un%20viaje"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold text-sm transition-all duration-200 hover:scale-105 active:scale-95"
-          style={{ background: "#F5A623", color: "#fff", boxShadow: "0 4px 16px rgba(245,166,35,0.4)" }}
-          aria-label="Hablemos por WhatsApp"
-        >
-          <WhatsAppIcon />
-          Hablemos por WhatsApp
-        </a>
 
         {/* Mobile Menu Button */}
         <button
