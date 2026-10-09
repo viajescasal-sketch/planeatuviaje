@@ -8,6 +8,7 @@
  */
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 import CountdownTimer from "./CountdownTimer";
+import QuoteButton from "./QuoteButton";
 
 const promos = [
   {
@@ -67,6 +68,7 @@ export default function Promotions() {
                 Este septiembre,<br />
                 <span style={{ color: "#F5A623" }}>viaja tu México</span> tranquilo
               </h2>
+              <QuoteButton variant="light" className="mt-6" />
             </div>
             <div className="flex flex-col gap-4">
               <p className="text-white/70 text-base max-w-sm leading-relaxed lg:text-right">

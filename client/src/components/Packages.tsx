@@ -10,6 +10,7 @@
 import { useRef, useState } from "react";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 import QuoteModal from "./QuoteModal";
+import QuoteButton from "./QuoteButton";
 
 const packages: Array<{
   id: string;
@@ -375,6 +376,7 @@ export default function Packages() {
                 <span style={{ color: "#009FE3" }}>Premium</span>
               </h2>
               <div className="gold-divider" />
+              <QuoteButton className="mt-6" />
             </div>
             <div className="flex flex-col items-start lg:items-end gap-4">
               <p className="text-base font-bold text-[#1A2B3C] lg:text-right max-w-sm leading-snug">

@@ -4,6 +4,7 @@
  * Gradient overlay for text contrast
  */
 import { useEffect, useRef } from "react";
+import QuoteButton from "./QuoteButton";
 
 export default function Hero() {
   const textRef = useRef<HTMLDivElement>(null);
@@ -112,6 +113,7 @@ export default function Hero() {
               >
                 Ver Paquetes
               </a>
+              <QuoteButton variant="light" size="lg" />
             </div>
 
             {/* Trust indicators */}

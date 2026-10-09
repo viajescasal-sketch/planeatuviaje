@@ -10,6 +10,7 @@
 import { useRef, useState } from "react";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 import TourQuoteModal from "./TourQuoteModal";
+import QuoteButton from "./QuoteButton";
 import TourDetailModal, { type TourSummary } from "./TourDetailModal";
 
 const tours = [
@@ -401,6 +402,7 @@ export default function Tours() {
                 <span style={{ color: "#009FE3" }}>Experiencias</span>
               </h2>
               <div className="gold-divider" />
+              <QuoteButton className="mt-6" />
             </div>
             <p className="section-subtitle lg:text-right max-w-sm">
               Los favoritos de la temporada, primero. Actividades únicas seleccionadas para complementar tu viaje y crear recuerdos que duran toda la vida.
