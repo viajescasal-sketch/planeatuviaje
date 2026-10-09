@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import CrmQuoteForm from "./CrmQuoteForm";
 
 interface QuoteModalProps {
   isOpen: boolean;
@@ -163,6 +164,7 @@ export default function QuoteModal({ isOpen, onClose, defaultDestino = "" }: Quo
           </button>
         </div>
 
+        {defaultDestino ? (
         <form onSubmit={handleSubmit} noValidate className="space-y-7">
           <FormSection title="Datos del cliente" subtitle="¿Con quién tendremos el gusto de hablar?">
             <Field label="Nombre completo" required error={errors.nombre} className="sm:col-span-2">
@@ -219,6 +221,9 @@ export default function QuoteModal({ isOpen, onClose, defaultDestino = "" }: Quo
           <button type="submit" className="btn-whatsapp sticky bottom-0 w-full justify-center py-4 text-base shadow-lg"><WhatsAppIcon />Solicitar cotización por WhatsApp</button>
           <p className="text-center text-xs text-[#5a7080]">🔒 Tu información es confidencial y solo se utilizará para preparar tu cotización.</p>
         </form>
+        ) : (
+          <CrmQuoteForm origen="paginas-viajescasal" />
+        )}
       </div>
     </div>
   );

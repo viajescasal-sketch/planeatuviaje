@@ -3,35 +3,11 @@
  * Design: Asymmetric editorial layout, premium feel
  * Section: Contacto
  */
-import { useState } from "react";
+import CrmQuoteForm from "./CrmQuoteForm";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 export default function Contact() {
   const { ref, visible } = useScrollAnimation();
-  const [form, setForm] = useState({ nombre: "", email: "", telefono: "", mensaje: "" });
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const msg = `Hola, me contacto desde el sitio web de Viajes Bumeran Casal.
-
-*Nombre:* ${form.nombre}
-*Email:* ${form.email}
-*Teléfono:* ${form.telefono}
-
-*Mensaje:*
-${form.mensaje}`;
-
-    window.open(
-      `https://wa.me/529983921530?text=${encodeURIComponent(msg)}`,
-      "_blank",
-      "noopener,noreferrer"
-    );
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
-    setForm({ nombre: "", email: "", telefono: "", mensaje: "" });
-  };
-
   return (
     <section
       id="contacto"
@@ -113,83 +89,10 @@ ${form.mensaje}`;
                 Envíanos un mensaje
               </h3>
               <p className="text-sm text-[#5a7080] mb-6">
-                Te contactamos por WhatsApp en minutos.
+                Déjanos tus datos y te enviamos tu cotización personalizada.
               </p>
 
-              {submitted ? (
-                <div className="text-center py-10">
-                  <div className="text-5xl mb-4">🎉</div>
-                  <h4 className="font-bold text-[#1A2B3C] text-lg mb-2">¡Mensaje enviado!</h4>
-                  <p className="text-[#5a7080] text-sm">
-                    Te redirigimos a WhatsApp para continuar la conversación.
-                  </p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div>
-                    <label htmlFor="c-nombre" className="vc-label">Nombre completo</label>
-                    <input
-                      id="c-nombre"
-                      type="text"
-                      className="vc-input"
-                      placeholder="Tu nombre"
-                      value={form.nombre}
-                      onChange={(e) => setForm({ ...form, nombre: e.target.value })}
-                      required
-                      autoComplete="name"
-                    />
-                  </div>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label htmlFor="c-email" className="vc-label">Email</label>
-                      <input
-                        id="c-email"
-                        type="email"
-                        className="vc-input"
-                        placeholder="tu@email.com"
-                        value={form.email}
-                        onChange={(e) => setForm({ ...form, email: e.target.value })}
-                        required
-                        autoComplete="email"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="c-tel" className="vc-label">Teléfono</label>
-                      <input
-                        id="c-tel"
-                        type="tel"
-                        className="vc-input"
-                        placeholder="55 1234 5678"
-                        value={form.telefono}
-                        onChange={(e) => setForm({ ...form, telefono: e.target.value })}
-                        autoComplete="tel"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label htmlFor="c-mensaje" className="vc-label">¿Cómo podemos ayudarte?</label>
-                    <textarea
-                      id="c-mensaje"
-                      className="vc-input resize-none"
-                      rows={4}
-                      placeholder="Cuéntanos sobre el viaje que tienes en mente..."
-                      value={form.mensaje}
-                      onChange={(e) => setForm({ ...form, mensaje: e.target.value })}
-                      required
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="btn-primary w-full justify-center py-4 text-base"
-                  >
-                    <WhatsAppIcon />
-                    Enviar por WhatsApp
-                  </button>
-                  <p className="text-center text-xs text-[#5a7080]">
-                    🔒 Tu información es confidencial
-                  </p>
-                </form>
-              )}
+              <CrmQuoteForm origen="paginas-viajescasal" />
             </div>
           </div>
         </div>
