@@ -156,10 +156,62 @@ const en: Record<string, string> = {
   "Tu Travel Partner":"Your Travel Partner", "Tu Travel Partner:":"Your Travel Partner:", "Especialista en Cancún y Riviera Maya":"Specialist in Cancún and Riviera Maya",
   "Conoce a quien te acompaña":"Meet who's with you every step", "Conoce a tu Travel Partner":"Meet your Travel Partner",
   "Cuando hablas con nosotros no hablas con un call center: hablas con Paulina. Tu Travel Partner se encarga de todo, desde el primer mensaje hasta que regresas a casa, para que no tengas que preocuparte por caer en una estafa, perder tu dinero o batallar con los detalles.":"When you talk to us, you're not talking to a call center: you're talking to Paulina. Your Travel Partner takes care of everything, from the first message until you're back home, so you never have to worry about scams, losing your money, or wrestling with the details.",
-  "Conoce su historia, sus especialidades y cómo trabaja contigo paso a paso.":"Learn her story, her specialties and how she works with you every step of the way."
+  "Conoce su historia, sus especialidades y cómo trabaja contigo paso a paso.":"Learn her story, her specialties and how she works with you every step of the way.",
+  // Promociones Día de Muertos 2026
+  "🕯️ Día de Muertos 2026 · Temporada de tradición":"🕯️ Day of the Dead 2026 · A season of tradition",
+  "Este Día de Muertos,":"This Day of the Dead,",
+  "vive nuestras tradiciones":"experience our traditions",
+  "de cerca":"up close",
+  "Viaja, descubre y conecta con nuestras raíces. Cupos limitados: las salidas de temporada se llenan rápido.":"Travel, discover and connect with our roots. Limited spots: seasonal departures fill up fast.",
+  "🕯️ Día de Muertos · Oaxaca":"🕯️ Day of the Dead · Oaxaca",
+  "Día de Muertos en Oaxaca":"Day of the Dead in Oaxaca",
+  "Seis días entre altares, comparsas y panteones iluminados. Santo Domingo, Zócalo, Catedral, Monte Albán, San Bartolo Coyotepec y Teotitlán del Valle.":"Six days among altars, comparsa parades and candlelit cemeteries. Santo Domingo, the Zócalo, the Cathedral, Monte Albán, San Bartolo Coyotepec and Teotitlán del Valle.",
+  "6 días · Hab. cuádruple · Mínimo 2 personas":"6 days · Quad room · Minimum 2 travelers",
+  "Salida única: 29 de octubre":"Single departure: October 29",
+  "Hospedaje":"Lodging",
+  "Guía acompañante":"Tour guide",
+  "Seguro turístico":"Travel insurance",
+  "Visitas incluidas":"Visits included",
+  "Noche de Muertos":"Night of the Dead",
+  "Transportación turística, hospedaje, visitas guiadas y coordinador de grupo durante todo el viaje.":"Tourist transportation, lodging, guided visits and a group coordinator throughout the trip.",
+  "3 días / 2 noches":"3 days / 2 nights",
+  "Del 31 de octubre al 2 de noviembre":"October 31 to November 2",
+  "De Tuxtla a Villahermosa":"From Tuxtla to Villahermosa",
+  "Muertos en Chiapas":"Day of the Dead in Chiapas",
+  "Traslados, hospedaje en la categoría que elijas, guía acompañante, seguro y visitas incluidas.":"Transfers, lodging in the category you choose, tour guide, insurance and visits included.",
+  "5 días · Hab. triple":"5 days · Triple room",
+  "Salidas diarias del 30 oct al 1 nov":"Daily departures Oct 30 – Nov 1",
+  "Tradición en los Altos":"Highland traditions",
+  "Chiapas Mágica":"Magical Chiapas",
+  "Tradición, color y flores en los Altos de Chiapas. Traslados, hospedaje, guía acompañante, seguro y visitas incluidas.":"Tradition, color and flowers in the Chiapas Highlands. Transfers, lodging, tour guide, insurance and visits included.",
+  "6 días · Hab. cuádruple":"6 days · Quad room",
+  "Tradición poblana":"Puebla traditions",
+  "Muertos en Puebla":"Day of the Dead in Puebla",
+  "Vive la temporada de Muertos en Puebla. Traslados, hospedaje, guía acompañante, seguro y visitas incluidas.":"Experience the Day of the Dead season in Puebla. Transfers, lodging, tour guide, insurance and visits included.",
+  "4 días · Hab. cuádruple":"4 days · Quad room",
+  "Salida única: 31 de octubre":"Single departure: October 31",
+  "Pueblo Mágico":"Magical Town",
+  "Taxco desde CDMX":"Taxco from Mexico City",
+  "Recorre el Pueblo Mágico de Taxco en plena temporada de Día de Muertos.":"Explore the Magical Town of Taxco during the Day of the Dead season.",
+  "Desde CDMX":"From Mexico City",
+  "2 y 3 de noviembre":"November 2 and 3",
+  "La noche de las velas":"The night of candles",
+  "Día de Muertos en Mixquic":"Day of the Dead in Mixquic",
+  "San Andrés Mixquic, famoso por su alumbrada: una de las celebraciones más emblemáticas de México.":"San Andrés Mixquic, famous for its candlelight vigil: one of Mexico's most iconic celebrations.",
+  "1 y 2 de noviembre":"November 1 and 2",
+  "Recorrido nocturno":"Night tour",
+  "Leyendas de Puebla en Tranvía":"Puebla Legends by Tram",
+  "Recorre el centro histórico de Puebla en tranvía mientras escuchas sus leyendas más famosas.":"Ride a tram through Puebla's historic center while hearing its most famous legends.",
+  "En Puebla":"In Puebla",
+  "Escapadas cortas":"Short getaways",
+  "Experiencias de 1 y 2 de noviembre":"November 1–2 experiences",
+  "Precios por persona":"Prices per person",
+  "Precios en pesos mexicanos por persona, sujetos a cambio y disponibilidad al momento de reservar. La ocupación (doble, triple o cuádruple) se indica en cada paquete. El orden de las visitas puede cambiar por operación. Consulta términos y condiciones con tu Travel Partner.":"Prices in Mexican pesos per person, subject to change and availability at the time of booking. Room occupancy (double, triple or quad) is shown for each package. The order of visits may change for operational reasons. Ask your Travel Partner for terms and conditions.",
+  "🇲🇽 Fiesta mexicana":"🇲🇽 Mexican fiesta",
 };
 
 const originals = new WeakMap<Node, string>();
+const written = new WeakMap<Node, string>();
 const attrOriginals = new WeakMap<Element, Record<string, string>>();
 
 function translateTree(language: Language) {
@@ -168,11 +220,14 @@ function translateTree(language: Language) {
   let node: Node | null;
   while ((node = walker.nextNode())) {
     if (["SCRIPT", "STYLE"].includes(node.parentElement?.tagName || "")) continue;
-    if (!originals.has(node)) originals.set(node, node.nodeValue || "");
+    // Si React cambió el texto (p. ej. el contador regresivo), ese es el nuevo original.
+    if (!originals.has(node) || node.nodeValue !== written.get(node)) originals.set(node, node.nodeValue || "");
     const original = originals.get(node) || "";
     const trimmed = original.trim();
     const translated = language === "en" ? en[trimmed] : undefined;
-    node.nodeValue = translated ? original.replace(trimmed, translated) : original;
+    const next = translated ? original.replace(trimmed, translated) : original;
+    if (node.nodeValue !== next) node.nodeValue = next;
+    written.set(node, next);
   }
   document.querySelectorAll("[placeholder],[aria-label],[title]").forEach((element) => {
     if (!attrOriginals.has(element)) {
