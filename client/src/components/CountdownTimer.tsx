@@ -1,11 +1,14 @@
 /**
  * CountdownTimer — Viajes Casal
  * Contador regresivo con fecha fija de cierre de promoción
- * (misma cuenta para todos los visitantes; termina el 14 de noviembre de 2026).
+ * (misma cuenta para todos los visitantes). La fecha se pasa con la prop
+ * `target`; si no se indica, usa la fecha por defecto de abajo.
  */
 import { useState, useEffect } from "react";
 
-export default function CountdownTimer() {
+const DEFAULT_TARGET = new Date(2026, 9, 31, 23, 59, 59); // 31 oct 2026 — Día de Muertos
+
+export default function CountdownTimer({ target = DEFAULT_TARGET }: { target?: Date }) {
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -14,9 +17,6 @@ export default function CountdownTimer() {
   });
 
   useEffect(() => {
-      // Meta fija: la promoción de septiembre termina el 14 de noviembre de 2026.
-          const target = new Date(2026, 10, 14, 23, 59, 59);
-
     const calculateTimeLeft = () => {
       const now = new Date();
       const difference = target.getTime() - now.getTime();
@@ -36,7 +36,7 @@ export default function CountdownTimer() {
     calculateTimeLeft();
     const timer = setInterval(calculateTimeLeft, 1000);
     return () => clearInterval(timer);
-  }, []);
+  }, [target.getTime()]);
 
   return (
     <div className="flex items-center gap-3 text-sm font-semibold">

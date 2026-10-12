@@ -54,7 +54,7 @@ const tours = [
     desc: "Barra libre de tequila y cerveza, música en vivo, trajineras y mariachi.",
     categoria: "Fiesta Mexicana",
     cta: "Resérvalo antes de que se llene tu fecha",
-    tendencia: "🇲🇽 Mes Patrio",
+    tendencia: "🇲🇽 Fiesta mexicana",
     detalle: {
       horario: "Lunes a sábado. Check-in 7:00 pm, último abordaje 8:30 pm, término aprox. 11:00 pm. Duración aprox. 3 horas.",
       incluye: [
