@@ -71,6 +71,7 @@ export default function Testimonials() {
                   <div className="text-xs text-[#5a7080] font-medium">{s.label}</div>
                 </div>
               ))}
+              <a href="https://share.google/6fFVwqjBNrqEpkL1L" target="_blank" rel="noopener noreferrer" className="self-center text-xs font-semibold text-[#009FE3] underline underline-offset-2 hover:opacity-80">Ver reseñas en Google</a>
             </div>
           </div>
         </div>
