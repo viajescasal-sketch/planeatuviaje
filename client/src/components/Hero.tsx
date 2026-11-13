@@ -118,9 +118,11 @@ export default function Hero() {
 
             {/* Trust indicators */}
             <div className="flex flex-wrap items-center gap-6 mt-10">
+              <a href="https://share.google/6fFVwqjBNrqEpkL1L" target="_blank" rel="noopener noreferrer" aria-label="Ver reseñas de Viajes Casal en Google" className="hover:opacity-90 transition-opacity">
               <TrustBadge icon="⭐" text="4.9/5 en Google" />
+            </a>
               <TrustBadge icon="✈️" text="+500 viajes realizados" />
-              <TrustBadge icon="🏆" text="Agencia certificada" />
+              <TrustBadge icon="🏆" text="Registro Nacional de Turismo (SECTUR) No. 0423005c22777" />
             </div>
           </div>
         </div>
