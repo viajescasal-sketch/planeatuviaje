@@ -9,6 +9,7 @@ import LegalTermsPrivacy from "./pages/LegalTermsPrivacy";
 import BlogList from "./components/BlogList";
 import BlogArticle from "./components/BlogArticle";
 import { LanguageProvider } from "./contexts/LanguageContext";
+import { DestinationPage, PackagesPage, QuotePage, ServicesPage, ToursPage } from "./pages/SeoPages";
 
 
 function Router() {
@@ -20,6 +21,16 @@ function Router() {
       <Route path={"/en"} component={Home} />
       <Route path={"/en/blog"} component={BlogList} />
       <Route path={"/en/blog/:slug"} component={BlogArticle} />
+      <Route path={"/servicios"} component={ServicesPage} />
+      <Route path={"/paquetes"} component={PackagesPage} />
+      <Route path={"/tours"} component={ToursPage} />
+      <Route path={"/cotizar"} component={QuotePage} />
+      <Route path={"/destinos/:slug"} component={DestinationPage} />
+      <Route path={"/en/servicios"} component={ServicesPage} />
+      <Route path={"/en/paquetes"} component={PackagesPage} />
+      <Route path={"/en/tours"} component={ToursPage} />
+      <Route path={"/en/cotizar"} component={QuotePage} />
+      <Route path={"/en/destinos/:slug"} component={DestinationPage} />
       <Route path={"/404"} component={NotFound} />
       <Route path={"/aviso-de-privacidad"} component={LegalTermsPrivacy} />
       <Route path={"/terminos-y-condiciones"} component={LegalTermsPrivacy} />
