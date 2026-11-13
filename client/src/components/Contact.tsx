@@ -40,8 +40,8 @@ export default function Contact() {
               <ContactCard
                 icon={<EmailIcon />}
                 title="Email"
-                value="casal@viajesbumeran.com"
-                link="mailto:casal@viajesbumeran.com"
+                value="hola@viajescasal.com"
+                link="mailto:hola@viajescasal.com"
                 color="#009FE3"
               />
               <ContactCard
