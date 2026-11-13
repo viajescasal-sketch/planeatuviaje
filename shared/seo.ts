@@ -29,7 +29,7 @@ export const BUSINESS = {
     { number: "+52 998 392 1530", e164: "+529983921530", label: "Ventas y cotizaciones" },
     { number: "+52 998 763 6565", e164: "+529987636565", label: "Tu Travel Partner" },
   ],
-  email: "casal@viajesbumeran.com",
+  email: "hola@viajescasal.com",
   city: "Cancún",
   region: "Quintana Roo",
   country: "MX",
