@@ -145,7 +145,7 @@ export default function HowItWorks() {
                   {[
                     { value: "+500", label: "Viajes" },
                     { value: "4.9★", label: "Calificación" },
-                    { value: "8+", label: "Años" },
+                    { value: "10", label: "Años de experiencia" },
                   ].map((s) => (
                     <div key={s.label}>
                       <div className="text-xl font-extrabold text-[#009FE3]">{s.value}</div>
