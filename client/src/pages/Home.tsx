@@ -9,6 +9,11 @@ import Benefits from "../components/Benefits";
 import TravelPartner from "../components/TravelPartner";
 import Packages from "../components/Packages";
 import Tours from "../components/Tours";
+import ExploreLinks from "../components/ExploreLinks";
+import { useSeo } from "@/hooks/useSeo";
+import { getPage } from "@shared/seo";
+
+const homeSeo = getPage("/");
 import HowItWorks from "../components/HowItWorks";
 import Testimonials from "../components/Testimonials";
 import FAQ from "../components/FAQ";
@@ -17,6 +22,7 @@ import Footer from "../components/Footer";
 import FloatingWhatsApp from "../components/FloatingWhatsApp";
 
 export default function Home() {
+  useSeo(homeSeo);
   return (
     <>
       {/* Skip to main content for accessibility */}
@@ -44,6 +50,9 @@ export default function Home() {
 
         {/* 5. Tours Destacados */}
         <Tours />
+
+        {/* 5.5 Explora por destino o servicio (enlaces internos) */}
+        <ExploreLinks />
 
         {/* 6. Cómo funciona */}
         <HowItWorks />

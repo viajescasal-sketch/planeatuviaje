@@ -1,3 +1,20 @@
 User-agent: *
 Allow: /
+
+# Buscador de ChatGPT, navegación de ChatGPT y verificación de anuncios de OpenAI
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-AdsBot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
 Sitemap: https://viajescasal.com/sitemap.xml
