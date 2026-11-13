@@ -25,7 +25,7 @@ export default function Contact() {
             </h2>
             <div className="gold-divider" />
             <p className="section-subtitle mb-8">
-              Escríbenos y en menos de 2 horas te enviamos una propuesta personalizada sin ningún costo.
+              Escríbenos y te enviamos una propuesta personalizada sin ningún costo en menos de 2 horas, dentro de nuestro horario de atención (lunes a sábado, 9:00 AM – 6:00 PM).
             </p>
 
             {/* Contact cards */}
@@ -60,7 +60,7 @@ export default function Contact() {
               <p className="text-sm font-bold text-[#1A2B3C] mb-3">Nuestra promesa</p>
               <ul className="space-y-2.5">
                 {[
-                  "Respuesta garantizada en menos de 2 horas",
+                  "Respuesta en menos de 2 horas en horario de atención",
                   "Cotización gratuita y sin compromiso",
                   "Atención personalizada de principio a fin",
                   "Disponibles 24/7 durante tu viaje",
