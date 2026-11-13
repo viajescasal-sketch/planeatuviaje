@@ -9,11 +9,11 @@ import { useScrollAnimation } from "../hooks/useScrollAnimation";
 const faqs = [
   {
     q: "¿Cómo funciona el proceso de cotización?",
-    a: "Es muy sencillo. Nos contactas por WhatsApp o llenas el formulario de cotización con los detalles de tu viaje (destino, fechas, número de personas y presupuesto). En menos de 2 horas te enviamos una propuesta personalizada sin ningún costo.",
+    a: "Es muy sencillo. Nos contactas por WhatsApp o llenas el formulario de cotización con los detalles de tu viaje (destino, fechas, número de personas y presupuesto). En menos de 2 horas, dentro de nuestro horario de atención (lunes a sábado, 9:00 AM – 6:00 PM), te enviamos una propuesta personalizada sin ningún costo.",
   },
   {
-    q: "¿Los precios incluyen vuelo y hotel?",
-    a: "Sí, todos nuestros paquetes incluyen vuelo redondo y hospedaje. Dependiendo del paquete también pueden incluir traslados, desayunos, cenas y actividades. Siempre especificamos claramente qué está incluido en cada propuesta.",
+    q: "¿Los paquetes incluyen vuelo y hotel?",
+    a: "Depende de cada paquete. Muchos incluyen vuelo redondo y hospedaje; otros incluyen solo hospedaje, tours o actividades (por ejemplo, los que indican “Vuelo no incluido”). Siempre especificamos claramente qué está incluido en cada paquete y en cada propuesta.",
   },
   {
     q: "¿Cuánto tiempo de anticipación necesito para reservar?",

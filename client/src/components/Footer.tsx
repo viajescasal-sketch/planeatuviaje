@@ -75,7 +75,7 @@ export default function Footer() {
                 </div>
               </div>
               <p className="text-white/60 text-sm leading-relaxed mb-4">
-                Viajes Bumeran Casal es una agencia de viajes premium especializada en destinos de playa en México. Más de 8 años creando experiencias inolvidables para nuestros clientes.
+                Viajes Bumeran Casal es una agencia de viajes premium especializada en destinos de playa en México. Con 10 años de experiencia conjunta creando experiencias inolvidables para nuestros clientes.
               </p>
               {/* Social */}
               <div className="flex gap-3">
