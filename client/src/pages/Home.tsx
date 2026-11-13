@@ -1,13 +1,12 @@
 /**
  * Home — Viajes Casal Landing Page
  * Design: Coastal Luxury Minimalism
- * Sections: Hero, Benefits, TravelPartner, Promotions, Packages, Tours, HowItWorks, Testimonials, FAQ, Contact, Footer
+ * Sections: Hero, Benefits, TravelPartner, Packages, Tours, HowItWorks, Testimonials, FAQ, Contact, Footer
  */
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Benefits from "../components/Benefits";
 import TravelPartner from "../components/TravelPartner";
-import Promotions from "../components/Promotions";
 import Packages from "../components/Packages";
 import Tours from "../components/Tours";
 import HowItWorks from "../components/HowItWorks";
@@ -39,9 +38,6 @@ export default function Home() {
 
         {/* 2.5. Tu Travel Partner — presenta a Paulina */}
         <TravelPartner />
-
-        {/* 3. Promociones de Julio */}
-        <Promotions />
 
         {/* 4. Paquetes */}
         <Packages />
