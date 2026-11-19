@@ -5,6 +5,7 @@
  */
 import { useState, useEffect } from "react";
 import { useLanguage } from "../contexts/LanguageContext";
+import { waLink } from "@shared/whatsapp";
 
 export default function Navbar() {
   const { language, setLanguage } = useLanguage();
@@ -144,7 +145,7 @@ const handleNavClick = (href: string, external?: boolean) => {
                 <button onClick={() => setLanguage("en")} className={`rounded-full px-4 py-2 text-sm font-bold ${language === "en" ? "bg-[#009FE3] text-white" : "bg-slate-100 text-slate-600"}`}>EN</button>
               </div>
               <a
-                href="https://wa.me/529983921530?text=Hola,%20me%20interesa%20cotizar%20un%20viaje"
+                href={waLink("Hola, me interesa cotizar un viaje")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-whatsapp w-full justify-center"

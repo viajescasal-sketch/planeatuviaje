@@ -3,6 +3,7 @@ import fs from "fs";
 import { createServer } from "http";
 import path from "path";
 import { fileURLToPath } from "url";
+import { renderWhatsAppGate } from "./whatsapp-gate";
 import {
   SITE_URL,
   abs,
@@ -101,6 +102,16 @@ async function startServer() {
       return res.redirect(301, req.path.replace(/\/+$/, "") + q);
     }
     next();
+  });
+
+  // Puerta de WhatsApp (medición de origen): ver server/whatsapp-gate.ts
+  app.get("/whatsapp", (_req, res) => {
+    res
+      .status(200)
+      .type("html")
+      .set("Cache-Control", "no-store")
+      .set("X-Robots-Tag", "noindex, nofollow")
+      .send(renderWhatsAppGate());
   });
 
   let template = "";

@@ -11,6 +11,7 @@
  * Lo usan el servidor (server/index.ts) y las páginas de React (client/src/pages).
  * Para cambiar un dato del negocio, cámbialo aquí y se actualiza en todo el sitio.
  */
+import { WHATSAPP_PHONE, waLink } from "./whatsapp";
 import { blogArticles, type BlogArticle } from "../client/src/blog/blogData";
 
 /* -------------------------------------------------------------------------- */
@@ -50,7 +51,10 @@ export const BUSINESS = {
   ],
 };
 
-export const WHATSAPP_URL = `https://wa.me/${BUSINESS.phones[0].e164.replace("+", "")}`;
+export const WHATSAPP_URL = waLink();
+
+/** Números que se ofrecen como WhatsApp en el sitio (solo el del bot). Los teléfonos de contacto siguen en BUSINESS.phones. */
+export const WHATSAPP_NUMBERS = BUSINESS.phones.filter((p) => p.e164.replace("+", "") === WHATSAPP_PHONE);
 
 /* -------------------------------------------------------------------------- */
 /* Tipos                                                                       */
@@ -364,7 +368,7 @@ const contactSection = (): SeoSection => ({
   h2: "Contacto",
   paragraphs: [
     `${BUSINESS.serviceMode} Horario de atención: ${BUSINESS.hours}. Respondemos en menos de 2 horas dentro de ese horario y te acompañamos 24/7 durante tu viaje.`,
-    `WhatsApp: ${BUSINESS.phones.map((p) => p.number).join(" y ")}. Correo: ${BUSINESS.email}.`,
+    `WhatsApp: ${WHATSAPP_NUMBERS.map((p) => p.number).join(" y ")}. Correo: ${BUSINESS.email}.`,
     `${BUSINESS.rntLabel} No. ${BUSINESS.rnt}.`,
   ],
   links: [{ label: "Cotiza tu viaje", href: "/cotizar" }],
@@ -512,7 +516,7 @@ function quotePage(): SeoPage {
     sections: [
       {
         h2: "Cotiza por WhatsApp",
-        items: BUSINESS.phones.map((p) => ({ name: p.number, text: p.label, href: `https://wa.me/${p.e164.replace("+", "")}` })),
+        items: WHATSAPP_NUMBERS.map((p) => ({ name: p.number, text: p.label, href: `https://wa.me/${p.e164.replace("+", "")}` })),
       },
       {
         h2: "¿Qué quieres cotizar?",
@@ -699,7 +703,7 @@ export function renderPageHtml(page: SeoPage): string {
       return `<section${s.id ? ` id="${esc(s.id)}"` : ""}><h2>${esc(s.h2)}</h2>${ps}${items}${links}</section>`;
     })
     .join("");
-  const contact = `<footer><p><strong>${esc(BUSINESS.name)}</strong> — ${esc(BUSINESS.serviceMode)} ${esc(BUSINESS.hours)}. WhatsApp ${BUSINESS.phones
+  const contact = `<footer><p><strong>${esc(BUSINESS.name)}</strong> — ${esc(BUSINESS.serviceMode)} ${esc(BUSINESS.hours)}. WhatsApp ${WHATSAPP_NUMBERS
     .map((p) => `<a href="https://wa.me/${p.e164.replace("+", "")}">${esc(p.number)}</a>`)
     .join(" / ")} · <a href="mailto:${esc(BUSINESS.email)}">${esc(BUSINESS.email)}</a> · ${esc(BUSINESS.rntLabel)} No. ${esc(BUSINESS.rnt)}</p><p>${[
     ...commonLinks,
@@ -736,7 +740,7 @@ export function buildLlmsTxt(): string {
     "",
     `- Modalidad: ${BUSINESS.serviceMode}`,
     `- Horario: ${BUSINESS.hours}. Respuesta en menos de 2 horas dentro del horario; atención 24/7 durante el viaje.`,
-    `- WhatsApp: ${BUSINESS.phones.map((p) => `${p.number} (${p.label})`).join("; ")}`,
+    `- WhatsApp: ${WHATSAPP_NUMBERS.map((p) => `${p.number} (${p.label})`).join("; ")}`,
     `- Correo: ${BUSINESS.email}`,
     `- ${BUSINESS.rntLabel}: ${BUSINESS.rnt}`,
     `- Experiencia: ${BUSINESS.experience}`,

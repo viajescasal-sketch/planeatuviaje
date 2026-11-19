@@ -9,6 +9,7 @@
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 import CountdownTimer from "./CountdownTimer";
 import QuoteButton from "./QuoteButton";
+import { WHATSAPP_PHONE } from "@shared/whatsapp";
 
 type Promo = {
   badge: string;
@@ -26,7 +27,7 @@ type Promo = {
   includes?: string[];
 };
 
-const WHATSAPP = "529983921530";
+const WHATSAPP = WHATSAPP_PHONE;
 const waLink = (title: string) =>
   `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(
     `Hola, me interesa la promoción de Día de Muertos: ${title}`

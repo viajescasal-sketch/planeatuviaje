@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from "react";
+import { trackWhatsAppClick } from "../lib/analytics";
+import { WHATSAPP_PHONE } from "@shared/whatsapp";
 
 interface TourQuoteModalProps {
   isOpen: boolean;
@@ -85,7 +87,7 @@ export default function TourQuoteModal({ isOpen, onClose, defaultTour = "" }: To
       return;
     }
     const tour = form.tour === "Otro" ? form.otroTour : form.tour;
-    const message = `Hola, quiero verificar disponibilidad y cotizar un tour con Viajes Bumeran Casal.
+    const message = `Hola, quiero verificar disponibilidad y cotizar un tour con Viajes Casal.
 
 *DATOS DEL CLIENTE*
 • Nombre: ${form.nombre}
@@ -102,7 +104,8 @@ export default function TourQuoteModal({ isOpen, onClose, defaultTour = "" }: To
 • ¿Necesita transporte?: ${form.transporte}
 • Etapa de compra: ${form.etapa}
 • Comentarios: ${form.comentarios || "Sin comentarios adicionales"}`;
-    window.open(`https://wa.me/529983921530?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
+    trackWhatsAppClick("tour_quote_modal", WHATSAPP_PHONE);
+    window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
     setForm(initialForm());
     setErrors({});
     onClose();
