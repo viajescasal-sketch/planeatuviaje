@@ -5,6 +5,7 @@
  */
 import CrmQuoteForm from "./CrmQuoteForm";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
+import { WHATSAPP_PHONE_DISPLAY, waLink } from "@shared/whatsapp";
 
 export default function Contact() {
   const { ref, visible } = useScrollAnimation();
@@ -33,8 +34,8 @@ export default function Contact() {
               <ContactCard
                 icon={<WhatsAppIcon />}
                 title="WhatsApp"
-                value="+52 998 392 1530"
-                link="https://wa.me/529983921530"
+                value={WHATSAPP_PHONE_DISPLAY}
+                link={waLink()}
                 color="#25D366"
               />
               <ContactCard

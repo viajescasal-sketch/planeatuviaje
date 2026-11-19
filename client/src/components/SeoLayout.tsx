@@ -5,7 +5,7 @@
  * (carrusel de paquetes, tours, formulario de cotización).
  */
 import type { ReactNode } from "react";
-import { BUSINESS, DESTINATIONS, WHATSAPP_URL, type SeoLink, type SeoPage, type SeoSection } from "@shared/seo";
+import { BUSINESS, DESTINATIONS, WHATSAPP_NUMBERS, WHATSAPP_URL, type SeoLink, type SeoPage, type SeoSection } from "@shared/seo";
 import { useSeo } from "@/hooks/useSeo";
 
 const isExternal = (href: string) => href.startsWith("http");
@@ -166,7 +166,7 @@ export default function SeoLayout({
           <div>
             <p className="font-bold text-white">Contacto</p>
             <ul className="mt-2 space-y-1">
-              {BUSINESS.phones.map((p) => (
+              {WHATSAPP_NUMBERS.map((p) => (
                 <li key={p.e164}>
                   <a href={`https://wa.me/${p.e164.replace("+", "")}`} target="_blank" rel="noopener noreferrer" className="hover:text-white">
                     WhatsApp {p.number}

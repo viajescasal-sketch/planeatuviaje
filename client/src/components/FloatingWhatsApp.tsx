@@ -1,12 +1,13 @@
 import { useState } from "react";
 import QuoteModal from "./QuoteModal";
 import { trackWhatsAppClick } from "../lib/analytics";
+import { WHATSAPP_PHONE } from "@shared/whatsapp";
 
 type View = "home" | "categories" | "questions" | "answer";
 type Faq = { question: string; answer: string };
 type Category = { name: string; emoji: string; items: Faq[] };
 
-const PHONE = "529983921530";
+const PHONE = WHATSAPP_PHONE;
 const categories: Category[] = [
   { name: "Destinos", emoji: "🏝️", items: [
     { question: "¿Cuál es la mejor temporada para viajar?", answer: "Depende del destino y de lo que quieras vivir: clima, presupuesto, actividades o menor afluencia. En Cancún y Riviera Maya, por ejemplo, las condiciones cambian durante el año. Cuéntanos tus fechas y prioridades para recomendarte una opción adecuada, sin prometer condiciones climáticas." },

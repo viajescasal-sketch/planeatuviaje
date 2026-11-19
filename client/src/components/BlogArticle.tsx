@@ -5,8 +5,9 @@ import { blogArticles, getArticle } from "@/blog/blogData";
 import NewsletterForm from "./NewsletterForm";
 import QuoteModal from "./QuoteModal";
 import { ArticleCta } from "./ExploreLinks";
+import { WHATSAPP_PHONE } from "@shared/whatsapp";
 
-const whatsApp = "https://wa.me/529983921530?text=";
+const whatsApp = `https://wa.me/${WHATSAPP_PHONE}?text=`;
 
 export default function BlogArticle() {
   const [, paramsEs] = useRoute("/blog/:slug");

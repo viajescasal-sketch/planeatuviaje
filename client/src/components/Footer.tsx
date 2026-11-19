@@ -4,6 +4,7 @@
  * Bottom section: copyright
  */
 import { Link } from "wouter";
+import { WHATSAPP_PHONE_DISPLAY, waLink } from "@shared/whatsapp";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -34,7 +35,7 @@ export default function Footer() {
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="https://wa.me/529983921530?text=Hola,%20quiero%20planear%20mi%20viaje%20con%20Viajes%20Bumeran%20Casal"
+                href={waLink("Hola, quiero planear mi viaje con Viajes Casal")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-whatsapp text-base px-8 py-4"
@@ -140,7 +141,7 @@ export default function Footer() {
               <ul className="space-y-3">
                 <li className="flex items-start gap-2 text-white/60 text-sm">
                   <span className="text-[#009FE3] mt-0.5">📱</span>
-                  <span>+52 998 392 1530</span>
+                  <span>{WHATSAPP_PHONE_DISPLAY}</span>
                 </li>
                 <li className="flex items-start gap-2 text-white/60 text-sm">
                   <span className="text-[#009FE3] mt-0.5">✉️</span>

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import CrmQuoteForm from "./CrmQuoteForm";
 import { trackWhatsAppClick } from "../lib/analytics";
+import { WHATSAPP_PHONE } from "@shared/whatsapp";
 
 interface QuoteModalProps {
   isOpen: boolean;
@@ -113,7 +114,7 @@ export default function QuoteModal({ isOpen, onClose, defaultDestino = "" }: Quo
 
     const destinoFinal = form.destino === "Otro" ? form.otroDestino : form.destino;
     const ciudadFinal = !incluyeVuelo ? "No aplica" : form.ciudadSalida === "Otra" ? form.otraCiudad : form.ciudadSalida;
-    const message = `Hola, solicito una cotización personalizada con Viajes Bumeran Casal.
+    const message = `Hola, solicito una cotización personalizada con Viajes Casal.
 
 *DATOS DEL CLIENTE*
 • Nombre: ${form.nombre}
@@ -143,8 +144,8 @@ export default function QuoteModal({ isOpen, onClose, defaultDestino = "" }: Quo
 • Comentarios: ${form.comentarios || "Sin comentarios adicionales"}
 • Método preferido: ${form.metodo}`;
 
-    trackWhatsAppClick("quote_modal", "529983921530");
-    window.open(`https://wa.me/529983921530?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
+    trackWhatsAppClick("quote_modal", WHATSAPP_PHONE);
+    window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
     setForm(initialForm());
     setErrors({});
     onClose();
