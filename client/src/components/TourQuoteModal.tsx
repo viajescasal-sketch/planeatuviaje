@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { trackWhatsAppClick } from "../lib/analytics";
 
 interface TourQuoteModalProps {
   isOpen: boolean;
@@ -102,6 +103,7 @@ export default function TourQuoteModal({ isOpen, onClose, defaultTour = "" }: To
 • ¿Necesita transporte?: ${form.transporte}
 • Etapa de compra: ${form.etapa}
 • Comentarios: ${form.comentarios || "Sin comentarios adicionales"}`;
+    trackWhatsAppClick("tour_quote_modal", "529983921530");
     window.open(`https://wa.me/529983921530?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
     setForm(initialForm());
     setErrors({});

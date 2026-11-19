@@ -1,5 +1,6 @@
 import { useState } from "react";
 import QuoteModal from "./QuoteModal";
+import { trackWhatsAppClick } from "../lib/analytics";
 
 type View = "home" | "categories" | "questions" | "answer";
 type Faq = { question: string; answer: string };
@@ -43,7 +44,10 @@ export default function FloatingWhatsApp() {
   const [category, setCategory] = useState<Category | null>(null);
   const [faq, setFaq] = useState<Faq | null>(null);
 
-  const whatsapp = (text: string) => window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
+  const whatsapp = (text: string) => {
+    trackWhatsAppClick("floating_assistant", PHONE);
+    window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
+  };
   const reset = () => { setView("home"); setCategory(null); setFaq(null); };
 
   return <>

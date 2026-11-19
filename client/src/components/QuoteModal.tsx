@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import CrmQuoteForm from "./CrmQuoteForm";
+import { trackWhatsAppClick } from "../lib/analytics";
 
 interface QuoteModalProps {
   isOpen: boolean;
@@ -142,6 +143,7 @@ export default function QuoteModal({ isOpen, onClose, defaultDestino = "" }: Quo
 • Comentarios: ${form.comentarios || "Sin comentarios adicionales"}
 • Método preferido: ${form.metodo}`;
 
+    trackWhatsAppClick("quote_modal", "529983921530");
     window.open(`https://wa.me/529983921530?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
     setForm(initialForm());
     setErrors({});
