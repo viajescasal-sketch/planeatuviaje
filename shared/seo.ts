@@ -1,5 +1,5 @@
 /**
- * SEO compartido — Viajes Bumeran Casal (viajescasal.com)
+ * SEO compartido — Viajes Casal (viajescasal.com)
  *
  * Fuente única para:
  *  - Datos oficiales del negocio (nombre, teléfonos, correo, RNT, horario).
@@ -21,7 +21,7 @@ import { blogArticles, type BlogArticle } from "../client/src/blog/blogData";
 export const SITE_URL = "https://viajescasal.com";
 
 export const BUSINESS = {
-  name: "Viajes Bumeran Casal",
+  name: "Viajes Casal",
   alternateName: "Viajes Casal",
   slogan: "Tu viaje, nuestra prioridad",
   description:
@@ -377,7 +377,7 @@ const contactSection = (): SeoSection => ({
 function homePage(): SeoPage {
   return {
     path: "/",
-    title: "Viajes Bumeran Casal — Agencia de viajes en Cancún | Paquetes, tours y circuitos",
+    title: "Viajes Casal — Agencia de viajes en Cancún | Paquetes, tours y circuitos",
     description:
       "Agencia de viajes en Cancún: paquetes todo incluido, tours, circuitos y viajes internacionales. Te acompañamos desde la cotización hasta tu regreso.",
     h1: "Agencia de viajes en Cancún: paquetes todo incluido, tours, circuitos y viajes internacionales",
@@ -417,7 +417,7 @@ function homePage(): SeoPage {
 function servicesPage(): SeoPage {
   return {
     path: "/servicios",
-    title: "Servicios de viaje | Viajes Bumeran Casal",
+    title: "Servicios de viaje | Viajes Casal",
     description:
       "Paquetes todo incluido, tours, circuitos por México y viajes internacionales con acompañamiento personalizado desde que cotizas hasta que regresas.",
     h1: "Servicios de viaje con acompañamiento personalizado",
@@ -443,7 +443,7 @@ function servicesPage(): SeoPage {
 function packagesPage(): SeoPage {
   return {
     path: "/paquetes",
-    title: "Paquetes todo incluido a Cancún, Riviera Maya, Puerto Vallarta y Los Cabos | Viajes Bumeran Casal",
+    title: "Paquetes todo incluido a Cancún, Riviera Maya, Puerto Vallarta y Los Cabos | Viajes Casal",
     description:
       "Paquetes de viaje todo incluido a Cancún, Riviera Maya, Puerto Vallarta y Los Cabos. Precios de referencia; tarifa final según fechas y disponibilidad.",
     h1: "Paquetes de viaje todo incluido",
@@ -486,7 +486,7 @@ function packagesPage(): SeoPage {
 function toursPage(): SeoPage {
   return {
     path: "/tours",
-    title: "Tours en Cancún, Riviera Maya, Puerto Vallarta y Los Cabos | Viajes Bumeran Casal",
+    title: "Tours en Cancún, Riviera Maya, Puerto Vallarta y Los Cabos | Viajes Casal",
     description:
       "Tours y experiencias: Chichén Itzá, Xcaret, Xel-Há, Isla Mujeres, Islas Marietas, avistamiento de ballenas y más. Cotiza gratis por WhatsApp.",
     h1: "Tours y experiencias en México",
@@ -508,7 +508,7 @@ function toursPage(): SeoPage {
 function quotePage(): SeoPage {
   return {
     path: "/cotizar",
-    title: "Cotiza tu viaje gratis | Viajes Bumeran Casal",
+    title: "Cotiza tu viaje gratis | Viajes Casal",
     description:
       "Solicita tu cotización de viaje sin costo: paquetes, tours, circuitos o viajes internacionales. Respuesta en menos de 2 horas en horario de atención.",
     h1: "Cotiza tu viaje",
@@ -557,7 +557,7 @@ function destinationPage(d: (typeof DESTINATIONS)[number]): SeoPage {
   });
   return {
     path: `/destinos/${d.slug}`,
-    title: `${d.title} | Viajes Bumeran Casal`,
+    title: `${d.title} | Viajes Casal`,
     description: d.description,
     h1: `Viaja a ${d.name}`,
     intro: d.intro,
@@ -579,7 +579,7 @@ function destinationPage(d: (typeof DESTINATIONS)[number]): SeoPage {
 function blogListPage(): SeoPage {
   return {
     path: "/blog",
-    title: "Blog de viajes | Viajes Bumeran Casal",
+    title: "Blog de viajes | Viajes Casal",
     description: "Guías y consejos para viajar a Cancún, Riviera Maya, Puerto Vallarta y Los Cabos.",
     h1: "Blog de viajes",
     intro: "Guías prácticas para planear tu próximo viaje de playa en México.",
@@ -637,7 +637,7 @@ function blogArticlePage(a: BlogArticle): SeoPage {
 function legalPage(path: string, h1: string): SeoPage {
   return {
     path,
-    title: `${h1} | Viajes Bumeran Casal`,
+    title: `${h1} | Viajes Casal`,
     description: `${h1} de ${BUSINESS.name}, agencia de viajes en línea desde Cancún.`,
     h1,
     intro: `${h1} de ${BUSINESS.name}. ${BUSINESS.rntLabel} No. ${BUSINESS.rnt}. Contacto: ${BUSINESS.email}.`,

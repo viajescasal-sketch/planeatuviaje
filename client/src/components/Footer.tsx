@@ -64,19 +64,19 @@ export default function Footer() {
               <div className="flex items-center gap-2 mb-4">
                 <img
                   src="/assets/logo-viajes-bumeran-casal.jpg"
-                  alt="Viajes Bumeran Casal"
+                  alt="Viajes Casal"
                   width="48"
                   height="48"
                   className="h-12 w-12 rounded-full bg-white object-contain"
                   loading="lazy"
                 />
                 <div>
-                  <span className="text-white font-bold text-lg leading-none block">Viajes Bumeran</span>
-                  <span className="text-white/50 text-xs">Casal</span>
+                  <span className="text-white font-bold text-lg leading-none block">Viajes Casal</span>
+                  <span className="text-white/50 text-xs">Tu viaje, nuestra prioridad</span>
                 </div>
               </div>
               <p className="text-white/60 text-sm leading-relaxed mb-4">
-                Viajes Bumeran Casal es una agencia de viajes premium especializada en destinos de playa en México. Con 10 años de experiencia conjunta creando experiencias inolvidables para nuestros clientes.
+                Viajes Casal es una agencia de viajes premium especializada en destinos de playa en México. Con 10 años de experiencia conjunta creando experiencias inolvidables para nuestros clientes.
               </p>
               {/* Social */}
               <div className="flex gap-3">

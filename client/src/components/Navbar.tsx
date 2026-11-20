@@ -62,7 +62,7 @@ const handleNavClick = (href: string, external?: boolean) => {
         >
           <img
             src="/assets/logo-viajes-bumeran-casal.jpg"
-            alt="Viajes Bumeran Casal"
+            alt="Viajes Casal"
             width="48"
             height="48"
             className="h-12 w-12 rounded-full bg-white object-contain shadow-sm"
