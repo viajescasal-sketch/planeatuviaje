@@ -5,6 +5,7 @@
  * Widget: Elfsight Google Reviews
  */
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
+import { useNearViewport } from "../hooks/useNearViewport";
 import { useEffect } from "react";
 import { useLanguage } from "../contexts/LanguageContext";
 
@@ -21,9 +22,11 @@ if (typeof window !== 'undefined') {
 export default function Testimonials() {
   const { language } = useLanguage();
   const { ref, visible } = useScrollAnimation();
+  // El widget de reseñas pesa ~470 KB: se descarga solo cuando el visitante se acerca a esta sección.
+  const { ref: sectionRef, near } = useNearViewport<HTMLElement>("600px");
 
   useEffect(() => {
-    if (language === "en") return;
+    if (language === "en" || !near) return;
     // Cargar el script de Elfsight
     const script = document.createElement("script");
     script.src = "https://elfsightcdn.com/platform.js";
@@ -36,10 +39,11 @@ export default function Testimonials() {
         document.body.removeChild(script);
       }
     };
-  }, [language]);
+  }, [language, near]);
 
   return (
     <section
+      ref={sectionRef}
       id="testimonios"
       className="py-24"
       style={{ background: "#F0F8FF" }}
