@@ -1,3 +1,4 @@
+import compression from "compression";
 import express from "express";
 import fs from "fs";
 import { createServer } from "http";
@@ -70,6 +71,9 @@ async function startServer() {
   const server = createServer(app);
   app.set("trust proxy", true);
 
+  // Comprime HTML, JS, CSS y JSON (las imágenes ya vienen comprimidas).
+  app.use(compression());
+
   const staticPath =
     process.env.NODE_ENV === "production"
       ? path.resolve(__dirname, "public")
@@ -93,7 +97,20 @@ async function startServer() {
   });
 
   // 3) Archivos estáticos (sin servir index.html automáticamente).
-  app.use(express.static(staticPath, { index: false }));
+  // Los archivos de /assets/ con huella (index-AbC123.js) nunca cambian: caché de 1 año.
+  // Imágenes y demás archivos: 7 días (si cambias una foto con el mismo nombre, se actualiza en una semana como máximo). Así el visitante que regresa no vuelve a descargarlos.
+  app.use(
+    express.static(staticPath, {
+      index: false,
+      setHeaders(res, filePath) {
+        if (/[\\/]assets[\\/].+-[A-Za-z0-9_-]{8}\.(js|css)$/.test(filePath)) {
+          res.setHeader("Cache-Control", "public, max-age=31536000, immutable");
+        } else if (/\.(jpe?g|png|webp|avif|gif|svg|ico|woff2?)$/i.test(filePath)) {
+          res.setHeader("Cache-Control", "public, max-age=604800");
+        }
+      },
+    }),
+  );
 
   // 4) Barra final → sin barra (301), conservando la consulta.
   app.use((req, res, next) => {

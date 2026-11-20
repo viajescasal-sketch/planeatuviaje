@@ -184,7 +184,7 @@ export const DESTINATIONS = [
   {
     slug: "riviera-maya",
     name: "Riviera Maya",
-    image: "/assets/resort-todo-incluido.png",
+    image: "/assets/resort-todo-incluido.jpg",
     title: "Paquetes y tours a la Riviera Maya",
     description:
       "Paquetes todo incluido a la Riviera Maya y tours a Xcaret, Xel-Há y Xplor, con atención personalizada de principio a fin.",
@@ -449,7 +449,7 @@ function packagesPage(): SeoPage {
     h1: "Paquetes de viaje todo incluido",
     intro:
       "Paquetes armados según tu ciudad de origen, fechas y presupuesto. Lo que incluye cada paquete (vuelo, hotel, traslados, alimentos) se indica en cada tarjeta y en tu propuesta. Los precios son de referencia por persona; la tarifa final depende de las fechas y la disponibilidad.",
-    image: "/assets/resort-todo-incluido.png",
+    image: "/assets/resort-todo-incluido.jpg",
     sections: [
       ...DESTINATIONS.map((d) => ({
         h2: `Paquetes a ${d.name}`,

@@ -29,7 +29,11 @@ export default function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/assets/hero-cancun.jpg"
+          src="/assets/hero-cancun-1200.webp"
+          srcSet="/assets/hero-cancun-800.webp 800w, /assets/hero-cancun-1200.webp 1200w, /assets/hero-cancun.jpg 1600w"
+          sizes="100vw"
+          width={1600}
+          height={800}
           alt="Playa tropical de lujo"
           className="w-full h-full object-cover"
           loading="eager"
