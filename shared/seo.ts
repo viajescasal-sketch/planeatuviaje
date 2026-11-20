@@ -27,8 +27,8 @@ export const BUSINESS = {
   description:
     "Agencia de viajes en línea desde Cancún, México. Paquetes todo incluido, tours, circuitos y viajes internacionales con acompañamiento personalizado desde que cotizas hasta que regresas de tu viaje.",
   phones: [
-    { number: "+52 998 392 1530", e164: "+529983921530", label: "Ventas y cotizaciones" },
-    { number: "+52 998 763 6565", e164: "+529987636565", label: "Tu Travel Partner" },
+    { number: "+52 998 763 6565", e164: "+529987636565", label: "Ventas y cotizaciones (WhatsApp)" },
+    { number: "+52 998 392 1530", e164: "+529983921530", label: "Tu Travel Partner" },
   ],
   email: "hola@viajescasal.com",
   city: "Cancún",
