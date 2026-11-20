@@ -203,11 +203,13 @@ function vitePluginStorageProxy(): Plugin {
   };
 }
 
-const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy()];
+// Herramientas de depuración de Manus: solo en desarrollo. En producción el runtime de Manus
+// inyectaba ~370 KB de JavaScript dentro de index.html (lo más pesado de la primera carga).
+const devPlugins = [jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy()];
 
-export default defineConfig({
-  base: "/",  
-  plugins,
+export default defineConfig(({ command }) => ({
+  base: "/",
+  plugins: [react(), tailwindcss(), ...(command === "serve" ? devPlugins : [])],
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),
@@ -220,6 +222,15 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        // Librerías grandes en archivos aparte: se guardan en caché y no se vuelven a bajar en cada despliegue.
+        manualChunks: {
+          react: ["react", "react-dom"],
+          motion: ["framer-motion"],
+        },
+      },
+    },
   },
   server: {
     port: 3000,
@@ -239,4 +250,4 @@ export default defineConfig({
       deny: ["**/.*"],
     },
   },
-});
+}));

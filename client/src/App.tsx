@@ -1,15 +1,22 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import NotFound from "@/pages/NotFound";
+import { lazy, Suspense } from "react";
 import { Route, Router as WouterRouter, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
-import LegalTermsPrivacy from "./pages/LegalTermsPrivacy";
-import BlogList from "./components/BlogList";
-import BlogArticle from "./components/BlogArticle";
 import { LanguageProvider } from "./contexts/LanguageContext";
-import { DestinationPage, PackagesPage, QuotePage, ServicesPage, ToursPage } from "./pages/SeoPages";
+
+// Solo la página de inicio se descarga de entrada; el resto (blog, páginas SEO, legales) se baja al visitarlas.
+const NotFound = lazy(() => import("@/pages/NotFound"));
+const LegalTermsPrivacy = lazy(() => import("./pages/LegalTermsPrivacy"));
+const BlogList = lazy(() => import("./components/BlogList"));
+const BlogArticle = lazy(() => import("./components/BlogArticle"));
+const DestinationPage = lazy(() => import("./pages/SeoPages").then((m) => ({ default: m.DestinationPage })));
+const PackagesPage = lazy(() => import("./pages/SeoPages").then((m) => ({ default: m.PackagesPage })));
+const QuotePage = lazy(() => import("./pages/SeoPages").then((m) => ({ default: m.QuotePage })));
+const ServicesPage = lazy(() => import("./pages/SeoPages").then((m) => ({ default: m.ServicesPage })));
+const ToursPage = lazy(() => import("./pages/SeoPages").then((m) => ({ default: m.ToursPage })));
 
 
 function Router() {
@@ -56,7 +63,9 @@ function App() {
               <LanguageProvider>
             <TooltipProvider>
               <Toaster />
-              <Router />
+              <Suspense fallback={<div style={{ minHeight: "100vh" }} aria-hidden="true" />}>
+                <Router />
+              </Suspense>
             </TooltipProvider>
           </LanguageProvider>
         </WouterRouter>

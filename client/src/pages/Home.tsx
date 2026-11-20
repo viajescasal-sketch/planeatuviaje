@@ -6,18 +6,12 @@
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Benefits from "../components/Benefits";
-import TravelPartner from "../components/TravelPartner";
-import Packages from "../components/Packages";
-import Tours from "../components/Tours";
-import ExploreLinks from "../components/ExploreLinks";
+import { lazy, Suspense } from "react";
 import { useSeo } from "@/hooks/useSeo";
 import { getPage } from "@shared/seo";
 
 const homeSeo = getPage("/");
-import HowItWorks from "../components/HowItWorks";
-import Testimonials from "../components/Testimonials";
-import FAQ from "../components/FAQ";
-import Contact from "../components/Contact";
+const HomeSections = lazy(() => import("./HomeSections"));
 import Footer from "../components/Footer";
 import FloatingWhatsApp from "../components/FloatingWhatsApp";
 
@@ -42,29 +36,10 @@ export default function Home() {
         {/* 2. Benefits — floats over hero bottom */}
         <Benefits />
 
-        {/* 2.5. Tu Travel Partner — presenta a Paulina */}
-        <TravelPartner />
-
-        {/* 4. Paquetes */}
-        <Packages />
-
-        {/* 5. Tours Destacados */}
-        <Tours />
-
-        {/* 5.5 Explora por destino o servicio (enlaces internos) */}
-        <ExploreLinks />
-
-        {/* 6. Cómo funciona */}
-        <HowItWorks />
-
-        {/* 7. Testimonios */}
-        <Testimonials />
-
-        {/* 8. Preguntas Frecuentes */}
-        <FAQ />
-
-        {/* 9. Contacto */}
-        <Contact />
+        {/* 3 al 9. Travel Partner, paquetes, tours, cómo funciona, testimonios, FAQ y contacto */}
+        <Suspense fallback={<div style={{ minHeight: "100vh" }} aria-hidden="true" />}>
+          <HomeSections />
+        </Suspense>
       </main>
 
       {/* 10. Footer */}
