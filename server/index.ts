@@ -30,7 +30,7 @@ function renderHtml(template: string, page: SeoPage | undefined, requestPath: st
   if (!page) {
     // Página inexistente: noindex y sin canonical (el servidor responde 404).
     return html
-      .replace(/<title>[\s\S]*?<\/title>/, "<title>Página no encontrada | Viajes Bumeran Casal</title>")
+      .replace(/<title>[\s\S]*?<\/title>/, "<title>Página no encontrada | Viajes Casal</title>")
       .replace(/<link rel="canonical"[^>]*>/, '<meta name="robots" content="noindex" />')
       .replace(/<script type="application\/ld\+json" id="ld-faq">[\s\S]*?<\/script>/, "");
   }
