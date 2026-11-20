@@ -1,4 +1,5 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
+import { useNearViewport } from "../hooks/useNearViewport";
 
 /**
  * Formulario de cotización conectado al CRM (travelpartner.viajescasal.com).
@@ -7,11 +8,12 @@ import { useEffect, useRef } from "react";
 const EMBED_SRC = "https://travelpartner.viajescasal.com/formulario-embed.js";
 
 export default function CrmQuoteForm({ origen = "paginas-viajescasal" }: { origen?: string }) {
-  const ref = useRef<HTMLDivElement>(null);
+  // El formulario se carga solo cuando el visitante se acerca (no al abrir la página).
+  const { ref, near } = useNearViewport<HTMLDivElement>("600px");
 
   useEffect(() => {
     const container = ref.current;
-    if (!container) return;
+    if (!container || !near) return;
     container.innerHTML = "";
     const script = document.createElement("script");
     script.src = EMBED_SRC;
@@ -21,7 +23,7 @@ export default function CrmQuoteForm({ origen = "paginas-viajescasal" }: { orige
     return () => {
       container.innerHTML = "";
     };
-  }, [origen]);
+  }, [origen, near, ref]);
 
-  return <div ref={ref} className="w-full" />;
+  return <div ref={ref} className="w-full" style={{ minHeight: "480px" }} />;
 }
