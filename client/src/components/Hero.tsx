@@ -7,6 +7,7 @@ import { useEffect, useRef } from "react";
 import QuoteButton from "./QuoteButton";
 import { waLink } from "@shared/whatsapp";
 
+import { SOCIAL_URLS, openSocialApp } from "@/lib/openSocialApp";
 export default function Hero() {
   const textRef = useRef<HTMLDivElement>(null);
 
@@ -68,16 +69,16 @@ export default function Hero() {
 
             {/* Social Media Links */}
             <div className="flex gap-3 mb-6">
-              <a href="https://www.facebook.com/share/1GjFtGYqvk/" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center text-white/70 hover:bg-[#009FE3] hover:text-white transition-all duration-200" aria-label="Facebook" title="Síguenos en Facebook">
+              <a href={SOCIAL_URLS.facebook} onClick={(e) => openSocialApp(e, "facebook")} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center text-white/70 hover:bg-[#009FE3] hover:text-white transition-all duration-200" aria-label="Facebook" title="Síguenos en Facebook">
                 <FacebookIcon />
               </a>
-              <a href="https://www.tiktok.com/@viajes_bumeran_casal?_r=1&_t=ZS-97tnwvvVyF8" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center text-white/70 hover:bg-[#009FE3] hover:text-white transition-all duration-200" aria-label="TikTok" title="Síguenos en TikTok">
+              <a href={SOCIAL_URLS.tiktok} onClick={(e) => openSocialApp(e, "tiktok")} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center text-white/70 hover:bg-[#009FE3] hover:text-white transition-all duration-200" aria-label="TikTok" title="Síguenos en TikTok">
                 <TikTokIconFixed />
               </a>
-              <a href="https://www.instagram.com/viaja.pau?igsh=bWZzeGphM2JveHV0&utm_source=qr" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center text-white/70 hover:bg-[#009FE3] hover:text-white transition-all duration-200" aria-label="Instagram" title="Síguenos en Instagram">
+              <a href={SOCIAL_URLS.instagram} onClick={(e) => openSocialApp(e, "instagram")} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center text-white/70 hover:bg-[#009FE3] hover:text-white transition-all duration-200" aria-label="Instagram" title="Síguenos en Instagram">
                 <InstagramIconFixed />
               </a>
-              <a href="https://youtube.com/@inspirateaviajar?si=x4N2enDjoUBr3QF_" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center text-white/70 hover:bg-[#009FE3] hover:text-white transition-all duration-200" aria-label="YouTube" title="Síguenos en YouTube">
+              <a href={SOCIAL_URLS.youtube} onClick={(e) => openSocialApp(e, "youtube")} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center text-white/70 hover:bg-[#009FE3] hover:text-white transition-all duration-200" aria-label="YouTube" title="Síguenos en YouTube">
                 <YouTubeIcon />
               </a>
             </div>

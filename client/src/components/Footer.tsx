@@ -6,6 +6,7 @@
 import { Link } from "wouter";
 import { WHATSAPP_PHONE_DISPLAY, waLink } from "@shared/whatsapp";
 
+import { SOCIAL_URLS, openSocialApp, type SocialApp } from "@/lib/openSocialApp";
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -80,10 +81,10 @@ export default function Footer() {
               </p>
               {/* Social */}
               <div className="flex gap-3">
-                <SocialLink href="https://www.facebook.com/share/1GjFtGYqvk/" label="Facebook" icon={<FacebookIcon />} />
-                <SocialLink href="https://www.tiktok.com/@viajes_bumeran_casal?_r=1&_t=ZS-97tnwvvVyF8" label="TikTok" icon={<TikTokIconFixed />} />
-                <SocialLink href="https://www.instagram.com/viaja.pau?igsh=bWZzeGphM2JveHV0&utm_source=qr" label="Instagram" icon={<InstagramIconFixed />} />
-                <SocialLink href="https://youtube.com/@inspirateaviajar?si=x4N2enDjoUBr3QF_" label="YouTube" icon={<YouTubeIcon />} />
+                <SocialLink app="facebook" label="Facebook" icon={<FacebookIcon />} />
+                <SocialLink app="tiktok" label="TikTok" icon={<TikTokIconFixed />} />
+                <SocialLink app="instagram" label="Instagram" icon={<InstagramIconFixed />} />
+                <SocialLink app="youtube" label="YouTube" icon={<YouTubeIcon />} />
               </div>
             </div>
 
@@ -175,10 +176,11 @@ export default function Footer() {
   );
 }
 
-function SocialLink({ href, label, icon }: { href: string; label: string; icon: React.ReactNode }) {
+function SocialLink({ app, label, icon }: { app: SocialApp; label: string; icon: React.ReactNode }) {
   return (
     <a
-      href={href}
+      href={SOCIAL_URLS[app]}
+      onClick={(e) => openSocialApp(e, app)}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
